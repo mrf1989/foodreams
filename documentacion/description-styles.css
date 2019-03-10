@@ -3,15 +3,17 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 h1, h2, h3 {
-    color: #053f8a;
+    color: #2d2d2d;
 }
 a {
-    color: #053f8a;
+    color: white;
+    background: rgb(250, 105, 105);
     text-decoration: none;
     font-weight: bold;
+    padding: 0px 3px;
 }
 a:hover {
-    color: #eeb35b;
+    color: red;
 }
 .header {
     background-color: #eee;
@@ -45,4 +47,7 @@ a:hover {
     padding-top: 25px;
     padding-bottom: 25px;
     border-top: #aaa solid 5px;
+}
+::selection {
+    background: rgb(255, 178, 178);
 }
