@@ -1,0 +1,32 @@
+
+Presentamos a nuestro usuario una aplicación que pretende ofrecer información e ideas sobre cocina. Podrá acceder a un buscador de recetas, consiguiendo una información nutricional completa sobre los platos, así como los ingredientes a utilizar. Esta aplicación no pretende ser un manual encorsetado, sino que busca dar rienda suelta a la creatividad culinaria del usuario. De esta manera le permite empezar a crear sus propias versiones de las recetas, partiendo de los ingredientes básicos, y dándole un extra de inspiración a través de imágenes y vídeos que le ayuden a la presentación de sus platos. De algún modo podrá guardar...
+
+---------------------------------------------------------------------------------------------------------
+https://developer.edamam.com 
+API de recetas: https://developer.edamam.com/edamam-docs-recipe-api    
+    Con esta API se tiene acceso a la información nutricional de recetas, así como a los ingredientes.
+---------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------
+Se necesitan vídeos -> Youtube
+---------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------
+Se necesitan imágenes -> Flickr
+    Clave:
+    f2a85fcb72c13d74c8030301d45587ca
+    Secreto:
+    f02ef56d8dab316b
+https://www.flickr.com/services/api/
+https://www.flickr.com/services/api/misc.urls.html
+
+    flickr.photos.search
+---------------------------------------------------------------------------------------------------------
+
+Fooddy
+MakeYourPlates
+FooDreams
+Eattips
+TastyPlates
+
+https://c3js.org
