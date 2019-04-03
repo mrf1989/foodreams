@@ -9,6 +9,26 @@
     <url-pattern>/helloworld</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>main-page.html</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SearchController</display-name>
+    <servlet-name>SearchController</servlet-name>
+    <servlet-class>aiss.controller.search.SearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchController</servlet-name>
+    <url-pattern>/SearchController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PhotosController</display-name>
+    <servlet-name>PhotosController</servlet-name>
+    <servlet-class>aiss.controller.search.PhotosController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotosController</servlet-name>
+    <url-pattern>/PhotosController</url-pattern>
+  </servlet-mapping>
 </web-app>
