@@ -31,4 +31,14 @@
     <servlet-name>PhotosController</servlet-name>
     <url-pattern>/PhotosController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VideosController</display-name>
+    <servlet-name>VideosController</servlet-name>
+    <servlet-class>aiss.controller.search.VideosController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VideosController</servlet-name>
+    <url-pattern>/VideosController</url-pattern>
+  </servlet-mapping>
 </web-app>
