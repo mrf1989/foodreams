@@ -12,6 +12,11 @@
 	<h1>Resultados de recetas para: <c:out value="${param.q}"/></h1>
 	<c:forEach items="${requestScope.recetas}" var="receta">
 		<span>${receta.recipe.label}</span><br>
+		<form action="VideosController" method="get">
+			<input type="hidden" name="q" value="${receta.recipe.label}">
+			<button type="submit">Videos</button>
+		</form>
+		
 	</c:forEach>
 	<h2>Fotos:</h2>
 	<c:forEach items="${requestScope.fotos}" var="foto">
