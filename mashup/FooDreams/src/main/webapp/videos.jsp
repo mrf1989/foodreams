@@ -10,11 +10,7 @@
 <body>
 	<h1>Resultados de videos para: <c:out value="${param.q}"/></h1>
 	<c:forEach items="${requestScope.videos}" var="video">
-		<span>${video.item.snippet.title}</span><br>
-		<form action="VideosController" method="get">
-			<input type="hidden" name="q" value="${video.item.snippet.title}">
-		</form>
+		<span>${video.snippet.title}</span><br>
 	</c:forEach>
-
 </body>
 </html>
