@@ -55,7 +55,7 @@ public class SearchController extends HttpServlet {
 			log.log(Level.INFO, "Total de fotos encontradas: " + flickrResults.getPhotos().getPhoto().size());
 			rd = request.getRequestDispatcher("/recetas.jsp");
 			request.setAttribute("recetas", edamamResults.getHits());
-			request.setAttribute("fotos", flickrResults.getPhotos().getPhoto());
+			request.setAttribute("fotos", flickrResults.getPhotos());
 		}
 		rd.forward(request, response);
 		
