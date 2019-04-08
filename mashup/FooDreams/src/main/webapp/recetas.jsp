@@ -1,3 +1,5 @@
+<%@page import="aiss.model.flickr.Photos"%>
+<%@page import="java.util.List"%>
 <%@page import="aiss.model.flickr.FotoSearch"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -16,12 +18,8 @@
 			<input type="hidden" name="q" value="${receta.recipe.label}">
 			<button type="submit">Videos</button>
 		</form>
-		
 	</c:forEach>
-	<h2>Fotos:</h2>
-	<c:forEach items="${requestScope.fotos}" var="foto">
-		<img src="https://farm${foto.farm}.staticflickr.com/${foto.server}/${foto.id}_${foto.secret}.jpg" />
-	</c:forEach>
+	
 	<p><a href="/fotos.jsp">Fotos</a></p>
 	<p><a href="/">Volver</a></p>
 </body>
