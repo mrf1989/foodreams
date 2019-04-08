@@ -21,7 +21,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 public class Photos {
 
-    @JsonProperty("page")
+    /**
+	 * 
+	 */
+	@JsonProperty("page")
     private Integer page;
     @JsonProperty("pages")
     private Integer pages;
