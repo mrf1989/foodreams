@@ -48,14 +48,10 @@ public class SearchController extends HttpServlet {
 		EdamamResource edamam = new EdamamResource();
 		RecetaSearch edamamResults = edamam.getRecetas(q, diet, ingr);
 		
-		FlickrResource flickr = new FlickrResource();
-		FotoSearch flickrResults = flickr.getFotos(q);
-		
-		if (edamamResults != null && flickrResults != null) {
-			log.log(Level.INFO, "Total de fotos encontradas: " + flickrResults.getPhotos().getPhoto().size());
+		if (edamamResults != null ) {
 			rd = request.getRequestDispatcher("/recetas.jsp");
+			request.getSession().setAttribute("receta", edamamResults.getHits());
 			request.setAttribute("recetas", edamamResults.getHits());
-			request.setAttribute("fotos", flickrResults.getPhotos());
 		}
 		rd.forward(request, response);
 		
