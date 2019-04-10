@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 public class Hit {
 
-    @JsonProperty("recipe")
+	@JsonProperty("recipe")
     private Recipe recipe;
     @JsonIgnore
     private Boolean bookmarked;
