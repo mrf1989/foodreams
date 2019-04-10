@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import aiss.model.edamam.RecetaSearch;
-import aiss.model.flickr.FotoSearch;
 import aiss.model.resources.EdamamResource;
-import aiss.model.resources.FlickrResource;
 
 /**
  * Servlet implementation class SearchController
@@ -50,7 +48,6 @@ public class SearchController extends HttpServlet {
 		
 		if (edamamResults != null ) {
 			rd = request.getRequestDispatcher("/recetas.jsp");
-			request.getSession().setAttribute("receta", edamamResults.getHits());
 			request.setAttribute("recetas", edamamResults.getHits());
 		}
 		rd.forward(request, response);
