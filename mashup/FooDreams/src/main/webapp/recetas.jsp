@@ -57,7 +57,6 @@
 		<input type="hidden" name="q" value="${param.q}">
 		<button type="submit">Fotos</button>
 	</form>
-	<div id="chart1"></div>
 	<p><a href="/">Volver</a></p>
 
 </body>
