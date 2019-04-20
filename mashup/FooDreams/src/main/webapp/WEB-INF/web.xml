@@ -41,4 +41,44 @@
     <servlet-name>VideosController</servlet-name>
     <url-pattern>/VideosController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>YoutubePlaylistsGetController</display-name>
+    <servlet-name>YoutubePlaylistsGetController</servlet-name>
+    <servlet-class>aiss.controller.search.YoutubePlaylistsGetController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>YoutubePlaylistsGetController</servlet-name>
+    <url-pattern>/youtubePlaylists</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>YoutubeAuthController</servlet-name>
+    <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+    <init-param>
+      <param-name>provider</param-name>
+      <param-value>Youtube</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>YoutubeAuthController</servlet-name>
+    <url-pattern>/AuthController/Youtube</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>YoutubeOAuth2Callback</servlet-name>
+    <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+    <init-param>
+      <param-name>provider</param-name>
+      <param-value>Youtube</param-value>
+    </init-param>
+    <init-param>
+      <param-name>onSuccess</param-name>
+      <param-value>redirect:/youtubePlaylists</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>YoutubeOAuth2Callback</servlet-name>
+    <url-pattern>/oauth2callback/Youtube</url-pattern>
+  </servlet-mapping>
 </web-app>
