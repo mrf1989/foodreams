@@ -4,15 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>fooDreams - Fotos</title>
-</head>
-<body>
-	<h2>Fotos: <c:out value="${param.q}"/></h2>
-	<c:forEach items="${requestScope.fotos}" var="foto">
-		<img src="https://farm${foto.farm}.staticflickr.com/${foto.server}/${foto.id}_${foto.secret}.jpg" />
-	</c:forEach>
-
-	<p><a href="/">Volver</a></p>
-</body>
-</html>
+<%@ include file="includes/head.jsp" %>
+<%@ include file="includes/header.jsp" %>
+	<div class="container">
+		<h2>Fotos sobre: <c:out value="${param.q}"/></h2>
+		<div class="row">
+		<c:forEach items="${requestScope.fotos}" var="foto">
+		<% Integer i = 3; %>
+		<% if (i > 0) { %>
+			<div class="col-md-6 col-sm-12">
+				<div class="card">
+					<img src="https://farm${foto.farm}.staticflickr.com/${foto.server}/${foto.id}_${foto.secret}.jpg" />				
+				</div>
+			</div>		
+		<% i = i - 1; } else { i = 3; } %>
+		</c:forEach>
+		</div>
+		<p><a href="/">Volver</a></p>
+	</div>
+<%@ include file="includes/footer.jsp" %>
