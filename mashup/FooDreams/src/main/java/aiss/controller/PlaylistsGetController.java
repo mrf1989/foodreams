@@ -1,4 +1,4 @@
-package aiss.controller.search;
+package aiss.controller;
 
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -14,14 +14,14 @@ import aiss.model.youtube.Playlists;
 /**
  * Servlet implementation class YoutubePlaylistsGetController
  */
-public class YoutubePlaylistsGetController extends HttpServlet {
+public class PlaylistsGetController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger log = Logger.getLogger(YoutubePlaylistsGetController.class.getName());
+	private static final Logger log = Logger.getLogger(PlaylistsGetController.class.getName());
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public YoutubePlaylistsGetController() {
+    public PlaylistsGetController() {
         super();
         // TODO Auto-generated constructor stub
     }

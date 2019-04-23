@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <servlet>
-    <servlet-name>HelloWorld</servlet-name>
-    <servlet-class>aiss.HelloWorldServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HelloWorld</servlet-name>
-    <url-pattern>/helloworld</url-pattern>
-  </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>main-page.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
     <display-name>SearchController</display-name>
     <servlet-name>SearchController</servlet-name>
-    <servlet-class>aiss.controller.search.SearchController</servlet-class>
+    <servlet-class>aiss.controller.SearchController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SearchController</servlet-name>
@@ -25,7 +17,7 @@
     <description></description>
     <display-name>PhotosController</display-name>
     <servlet-name>PhotosController</servlet-name>
-    <servlet-class>aiss.controller.search.PhotosController</servlet-class>
+    <servlet-class>aiss.controller.PhotosController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>PhotosController</servlet-name>
@@ -35,7 +27,7 @@
     <description></description>
     <display-name>VideosController</display-name>
     <servlet-name>VideosController</servlet-name>
-    <servlet-class>aiss.controller.search.VideosController</servlet-class>
+    <servlet-class>aiss.controller.VideosController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>VideosController</servlet-name>
@@ -45,7 +37,7 @@
     <description></description>
     <display-name>YoutubePlaylistsGetController</display-name>
     <servlet-name>YoutubePlaylistsGetController</servlet-name>
-    <servlet-class>aiss.controller.search.YoutubePlaylistsGetController</servlet-class>
+    <servlet-class>aiss.controller.PlaylistsGetController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>YoutubePlaylistsGetController</servlet-name>

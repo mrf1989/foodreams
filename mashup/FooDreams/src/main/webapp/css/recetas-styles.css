@@ -1,0 +1,18 @@
+.receta-module {
+	margin-bottom: 2rem;
+	-webkit-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+}
+
+.receta-opt {
+	padding-top: 16px;
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	justify-content: space-between;
+}
+
+.list-ingredientes {
+	padding: 16px 0;
+}
