@@ -13,7 +13,7 @@
 		<c:forEach items="${requestScope.fotos}" var="foto">
 		<% Integer i = 3; %>
 		<% if (i > 0) { %>
-			<div class="col-md-6 col-sm-12">
+			<div class="col-md-4 col-sm-12">
 				<div class="card">
 					<img src="https://farm${foto.farm}.staticflickr.com/${foto.server}/${foto.id}_${foto.secret}.jpg" />				
 				</div>

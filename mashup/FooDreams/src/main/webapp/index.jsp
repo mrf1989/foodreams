@@ -44,6 +44,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-5 col-sm-6">
                                             <select name="diet" class="form-control">
+                                            	<option value="">-- Tipo de dieta --</option>
                                                 <option value="balanced">Equilibrada</option>
 												<option value="high-protein">Alta en proteina</option>
 												<option value="low-fat">Baja en grasas</option>
