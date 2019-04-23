@@ -72,7 +72,8 @@ public class YoutubeResource {
         cr.setChallengeResponse(chr);
         
         Snippet_ newPlaylist = new Snippet_();
-        newPlaylist.setTitle(title);
+        // TODO
+        newPlaylist.setTitle("FooDreams: " + title);
         newPlaylist.setDescription(description);
         NewPlaylist p = new NewPlaylist();
         p.setSnippet(newPlaylist);
