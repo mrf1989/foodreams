@@ -7,5 +7,6 @@
 <link rel="stylesheet" href="css/home-styles.css">
 <link rel="stylesheet" href="css/recetas-styles.css">
 <link rel="stylesheet" href="css/header-styles.css">
+<link rel="stylesheet" href="css/videos-styles.css">
 </head>
 <body>
