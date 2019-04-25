@@ -35,7 +35,7 @@ public class YoutubeResource {
 	public VideoSearch getVideos(String query) throws UnsupportedEncodingException {
 		String q = URLEncoder.encode(query, "UTF-8");
 		
-		String uri = baseURL + "/search?key=" + YOUTUBE_API_KEY + "&part=snippet&q=" + q;
+		String uri = baseURL + "/search?key=" + YOUTUBE_API_KEY + "&part=snippet&q=" + q +"&maxResults=8";
 		
 		ClientResource cr = new ClientResource(uri);
 		VideoSearch vs = cr.get(VideoSearch.class);
