@@ -48,7 +48,7 @@
 							<div class="receta-opt">
 								<div class="calorias">
 									<!-- No se encuentra ENERC_KCAL en TotalNutrients -->
-									<p>Calorías:</p>
+									<p>Calorías: <span id="caloriasReceta">${receta.recipe.calories / receta.recipe.yield}</span></p>
 								</div>
 								<form action="VideosController" method="get">
 									<input type="hidden" name="q" value="${receta.recipe.label}">
@@ -61,11 +61,11 @@
 				<% i = i - 1; } else { i = 2; } %>
 				
 				<!-- Javascript para generar la gráfica de nutrientes -->	
-				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.CA.quantity}" />" type="hidden"/>
-				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.SUGAR.quantity}" />" type="hidden"/>
-				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.FAT.quantity}" />" type="hidden"/>
-				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.FIBTG.quantity}" />" type="hidden"/>
-				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.PROCNT.quantity}" />" type="hidden"/>
+				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.CHOCDF.quantity / receta.recipe.yield}" />" type="hidden"/>
+				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.SUGAR.quantity / receta.recipe.yield}" />" type="hidden"/>
+				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.FAT.quantity / receta.recipe.yield}" />" type="hidden"/>
+				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.FIBTG.quantity / receta.recipe.yield}" />" type="hidden"/>
+				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.PROCNT.quantity / receta.recipe.yield}" />" type="hidden"/>
 				<script>
 					var selector = '#chart'+<%=id %>;
 					var carbs = document.getElementsByName('<%=id %>')[0].value;
@@ -74,7 +74,7 @@
 					var fiber = document.getElementsByName('<%=id %>')[3].value;
 					var protein = document.getElementsByName('<%=id %>')[4].value;
 					
-					var chart = c3.generate({
+					var graph = c3.generate({
 						bindto: selector,
 						data: {
 							x: 'x',
