@@ -52,7 +52,7 @@
 								</div>
 								<form action="VideosController" method="get">
 									<input type="hidden" name="q" value="${receta.recipe.label}">
-									<button class="btn btn-primary" type="submit">Vídeos</button>
+									<button class="btn btn-danger" type="submit">Vídeos</button>
 								</form>
 							</div>
 						</div>
