@@ -33,8 +33,7 @@
 			<div class="col-sm-12 col-md-2">
 				<div class="row d-flex justify-content-end pr-5">
 					<form class="form-inline" action="">
-						<button class="btn btn-primary">
-							<i class="fab fa-youtube"></i> Mis playlists</button>
+						<button class="btn btn-primary"><i class="fab fa-youtube"></i> Mis playlists</button>
 					</form>
 				</div>
 			</div>
