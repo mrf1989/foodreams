@@ -26,7 +26,7 @@
 					                	</select>
 	                               	</div>
 	                                <div class="form-group col-md-4 col-sm-4">
-	                                    <button class="btn btn-danger btn-block" type="submit">
+	                                    <button class="btn btn-primary btn-block" type="submit">
 	                                        <i class="fas fa-plus"></i> <span class="btn-search-text">añadir</span>
 	                                   	</button>
 	                                </div>

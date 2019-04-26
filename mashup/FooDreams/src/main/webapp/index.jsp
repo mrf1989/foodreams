@@ -36,7 +36,7 @@
                                             <input type="text" name="q" class="form-control" placeholder="Buscar una receta" autofocus="autofocus">
                                         </div>
                                         <div class="form-group col-md-2 col-sm-3">
-                                            <button class="btn btn-danger btn-block" type="submit">
+                                            <button class="btn btn-primary btn-block" type="submit">
                                                 <i class="fas fa-search"></i> <span class="btn-search-text">Buscar</span>
                                             </button>
                                         </div>
@@ -64,7 +64,7 @@
                         <!--Login button-->
                         <div class="row mt-5 text-center">
                             <div class="col">
-                                <button class="btn btn-danger btn-login" onclick="location.href='/youtubePlaylists'"><i class="fab fa-youtube"></i> Mis playlists de recetas</button>
+                                <button class="btn btn-primary btn-login" onclick="location.href='/youtubePlaylists'"><i class="fab fa-youtube"></i> Mis playlists de recetas</button>
                             </div>
                         </div>
                     </div>
