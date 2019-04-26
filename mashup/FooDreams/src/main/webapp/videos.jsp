@@ -8,7 +8,11 @@
 <%@ include file="includes/head.jsp" %>
 <%@ include file="includes/header.jsp" %>
 	<div class="container">
-		<h1>Resultados de videos para: <c:out value="${param.q}"/></h1>
+		<div class="row my-3">
+			<div class="col-md-12">
+				<h2>Resultados sobre: "<c:out value="${param.q}"/>"</h2>
+			</div>
+		</div>
 		<div class="row">
 			<c:forEach items="${requestScope.videos}" var="video">
 				<div class="col-md-6 col-sm-12">

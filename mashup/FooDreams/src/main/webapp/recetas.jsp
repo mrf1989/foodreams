@@ -8,7 +8,11 @@
 <%@ include file="includes/head.jsp" %>
 <%@ include file="includes/header.jsp" %>
 	<div class="container">
-		<h1>Resultados sobre: <c:out value="${param.q}"/></h1>
+		<div class="row my-3">
+			<div class="col-md-12">
+				<h2>Resultados sobre: "<c:out value="${param.q}"/>"</h2>
+			</div>
+		</div>
 		<div class="row">
 			<!-- Scripts para generar gráficos -->
 			<script src="https://d3js.org/d3.v5.min.js"></script>
@@ -105,6 +109,5 @@
 			<input type="hidden" name="q" value="${param.q}">
 			<button type="submit">Fotos</button>
 		</form>
-		<p><a href="/">Volver</a></p>
 	</div><!-- fin .container -->
 <%@ include file="includes/footer.jsp" %>
