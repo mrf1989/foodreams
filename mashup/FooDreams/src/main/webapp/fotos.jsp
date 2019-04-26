@@ -8,14 +8,18 @@
 <%@ include file="includes/head.jsp" %>
 <%@ include file="includes/header.jsp" %>
 	<div class="container">
-		<h2>Fotos sobre: <c:out value="${param.q}"/></h2>
+		<div class="row my-3">
+			<div class="col-md-12">
+				<h2>Fotos sobre: "<c:out value="${param.q}"/>"</h2>
+			</div>
+		</div>
 		<div class="row">
 		<c:forEach items="${requestScope.fotos}" var="foto">
 		<% Integer i = 3; %>
 		<% if (i > 0) { %>
-			<div class="col-md-4 col-sm-12">
-				<div class="card">
-					<img src="https://farm${foto.farm}.staticflickr.com/${foto.server}/${foto.id}_${foto.secret}.jpg" />				
+			<div class="col-sm-6 col-md-4">
+				<div class="card receta-module">
+					<img class="img-fluid" src="https://farm${foto.farm}.staticflickr.com/${foto.server}/${foto.id}_${foto.secret}.jpg" />				
 				</div>
 			</div>		
 		<% i = i - 1; } else { i = 3; } %>

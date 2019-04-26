@@ -1,4 +1,5 @@
 .video-module{
+	border: 0;
 	margin-bottom: 2rem;
 	-webkit-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
