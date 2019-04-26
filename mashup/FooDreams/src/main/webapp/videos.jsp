@@ -14,7 +14,9 @@
 				<div class="col-md-6 col-sm-12">
 					<div class="card video-module">
 						<div class="card-body">
-							<iframe width="500" height="315" src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}" />" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+							<div class="embed-responsive embed-responsive-16by9">
+								<iframe class="embed-responsive-item" width="500" height="315" src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}" />" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+							</div>
 							<form method="post" action="CONTROLADOR">
 								<div class="form-row">
 	                                <div class="form-group col-md-8 col-sm-8">
@@ -27,7 +29,7 @@
 	                               	</div>
 	                                <div class="form-group col-md-4 col-sm-4">
 	                                    <button class="btn btn-primary btn-block" type="submit">
-	                                        <i class="fas fa-plus"></i> <span class="btn-search-text">añadir</span>
+	                                        <i class="fas fa-plus"></i> <span class="btn-search-text">Añadir</span>
 	                                   	</button>
 	                                </div>
                                 </div>
