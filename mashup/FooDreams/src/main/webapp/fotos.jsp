@@ -25,6 +25,5 @@
 		<% i = i - 1; } else { i = 3; } %>
 		</c:forEach>
 		</div>
-		<p><a href="/">Volver</a></p>
 	</div>
 <%@ include file="includes/footer.jsp" %>

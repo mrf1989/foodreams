@@ -9,6 +9,14 @@
 <%@ include file="includes/header.jsp" %>
 	<div class="container">
 		<div class="row my-3">
+			<div class="col-md-12 py-2">
+				<form class="d-flex justify-content-center" action="PhotosController" method="get">
+					<input type="hidden" name="q" value="${param.q}">
+					<button class="btn btn-primary btn-lg" type="submit"><i class="fas fa-images"></i> Fotos</button>
+				</form>
+			</div>
+		</div>
+		<div class="row my-3">
 			<div class="col-md-12">
 				<h2>Resultados sobre: "<c:out value="${param.q}"/>"</h2>
 			</div>
@@ -104,10 +112,5 @@
 				<!-- fin Javascript de gráfica -->
 			</c:forEach>
 		</div><!-- fin .row (módulos recetas) -->
-			
-		<form action="PhotosController" method="get">
-			<input type="hidden" name="q" value="${param.q}">
-			<button type="submit">Fotos</button>
-		</form>
 	</div><!-- fin .container -->
 <%@ include file="includes/footer.jsp" %>
