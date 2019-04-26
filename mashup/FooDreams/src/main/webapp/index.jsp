@@ -33,7 +33,7 @@
                                 <form method="get" action="SearchController">
                                     <div class="form-row">
                                         <div class="form-group col-md-10 col-sm-9">
-                                            <input type="text" name="q" class="form-control" placeholder="Buscar una receta" autofocus="autofocus">
+                                            <input type="text" name="q" class="form-control" placeholder="Buscar una receta" autofocus="autofocus" autocomplete="off">
                                         </div>
                                         <div class="form-group col-md-2 col-sm-3">
                                             <button class="btn btn-primary btn-block" type="submit">

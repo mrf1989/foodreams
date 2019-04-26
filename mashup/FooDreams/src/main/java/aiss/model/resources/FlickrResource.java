@@ -19,7 +19,7 @@ public class FlickrResource {
 		String text = URLEncoder.encode(query, "UTF-8");
 		
 		String uri = "https://api.flickr.com/services/rest/?method=flickr.photos.search&text=" + text +
-				"&api_key=" + FLICKR_API_KEY + "&per_page=9&tags=comida,receta,salud,bienestar"
+				"&api_key=" + FLICKR_API_KEY + "&per_page=12&tags=comida,receta,salud,bienestar"
 				+ "&content-type=1&format=json&nojsoncallback=1";
 		
 		ClientResource cr = new ClientResource(uri);
