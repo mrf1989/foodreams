@@ -1,21 +1,59 @@
 package aiss.model.repository;
 
-public class MapFooDreamsRepository {
+import java.util.Collection;
+import java.util.Map;
+
+import aiss.model.edamam.Ingredient;
+import aiss.model.edamam.Recipe;
+
+public class MapFooDreamsRepository implements FooDreamsRepository{
 	
-//	Map<String, Playlist> playlistMap;
-//	Map<String, Song> songMap;
+	Map<String, Recipe> recipeMap;
+	Map<String, Ingredient> ingredientMap;
 	private static MapFooDreamsRepository instance=null;
-//	private int index=0;			// Index to create playlists and songs' identifiers.
+//	private int index=0;
 	
 	
 	public static MapFooDreamsRepository getInstance() {
 		
 		if (instance==null) {
 			instance = new MapFooDreamsRepository();
-//			instance.init();
+			instance.init();
 		}
 		
 		return instance;
 	}
 
+
+	private void init() {
+	// TODO Auto-generated method stub
+	
+}
+
+
+	@Override
+	public Collection<Recipe> getAllRecipes() {
+		return recipeMap.values();
+	}
+
+
+	@Override
+	public Recipe getRecipe(String recipeId) {
+		return recipeMap.get(recipeId);
+	}
+
+
+	@Override
+	public Collection<Ingredient> getAllIngredients() {
+		return ingredientMap.values();
+	}
+
+
+	@Override
+	public Ingredient getIngredient(String ingrId) {
+		return ingredientMap.get(ingrId);
+	}
+
+	
+	
 }
