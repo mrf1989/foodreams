@@ -5,15 +5,15 @@ import javax.ws.rs.Path;
 import aiss.model.repository.FooDreamsRepository;
 
 @Path("/lists")
-public class FoodResource {
+public class RecipeResource {
 
-	private static FoodResource _instance=null;
+	private static RecipeResource _instance=null;
 	FooDreamsRepository repository;
 	
-	public static FoodResource getInstance()
+	public static RecipeResource getInstance()
 	{
 		if(_instance==null)
-				_instance=new FoodResource();
+				_instance=new RecipeResource();
 		return _instance;
 	}
 

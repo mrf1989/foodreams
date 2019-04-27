@@ -4,11 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.ws.rs.core.Application;
-import aiss.api.resources.FoodResource;
-import aiss.api.resources.PhotoResource;
-import aiss.api.resources.VideoResource;
+import aiss.api.resources.RecipeResource;
 
-public class FooDreamsApplication {
+public class FooDreamsApplication extends Application {
 	
 	private Set<Object> singletons = new HashSet<Object>();
 	private Set<Class<?>> classes = new HashSet<Class<?>>();
@@ -17,17 +15,15 @@ public class FooDreamsApplication {
 	// so that they can be found by RESTEasy.
 	public FooDreamsApplication() {
 
-		singletons.add(FoodResource.getInstance());
-		singletons.add(PhotoResource.getInstance());
-		singletons.add(VideoResource.getInstance());
+		singletons.add(RecipeResource.getInstance());
 	}
 	
-//	@Override
+	@Override
 	public Set<Class<?>> getClasses() {
 		return classes;
 	}
 
-//	@Override
+	@Override
 	public Set<Object> getSingletons() {
 		return singletons;
 	}
