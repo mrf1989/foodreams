@@ -2,10 +2,12 @@ package aiss.api.resources;
 
 import java.util.Collection;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.spi.NotFoundException;
 
@@ -46,6 +48,20 @@ public class IngredienteResource {
 			throw new NotFoundException("El ingrediente con id="+id+" no ha sido encontrado");
 		}
 		return ingrediente;
+	}
+	
+	@DELETE
+	@Path("/{id}")
+	public Response removeIngrediente(@PathParam("id") String id) {
+		Ingrediente ingrediente = repository.getIngrediente(id);
+		
+		if (ingrediente.getId()==null)
+			throw new NotFoundException("El ingrediente con id="+id+" no ha sido encontrado");
+		
+		
+		repository.deleteIngrediente(id);	
+		
+		return Response.noContent().build();
 	}
 	
 	

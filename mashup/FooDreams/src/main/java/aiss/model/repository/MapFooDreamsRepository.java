@@ -80,7 +80,13 @@ public class MapFooDreamsRepository implements FooDreamsRepository {
 		ingrediente.setNombre(i.getNombre());
 		ingrediente.setCantidad(i.getCantidad());
 		ingrediente.setUnidad(i.getUnidad());
+<<<<<<< .mine
+		ingrediente.setCalorías(i.getCalorias());
+||||||| .r83
+		ingrediente.setCalorías(i.getCalorías());
+=======
 		ingrediente.setCalorias(i.getCalorias());
+>>>>>>> .r85
 	}
 
 	@Override
