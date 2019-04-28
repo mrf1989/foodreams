@@ -24,46 +24,42 @@ public class MapFooDreamsRepository implements FooDreamsRepository {
 	}
 
 	private void init() {
-		recetaMap=new HashMap<String, Receta>();
-		ingredienteMap= new HashMap<String, Ingrediente>();
-		
-		//Crear ingredientes
-		Ingrediente garbanzos=new Ingrediente();
-		garbanzos.setNombre("Garbanzo");
-		garbanzos.setCantidad("300.0");
-		garbanzos.setUnidad("gramos");
-		garbanzos.setCalorías("540.0");
+		recetaMap = new HashMap<String, Receta>();
+		ingredienteMap = new HashMap<String, Ingrediente>();
+
+		// Crear ingredientes
+		Ingrediente garbanzos = new Ingrediente("Garbanzo", "300.0", "gramos", "540.0");
 		addIngrediente(garbanzos);
-		
-		Ingrediente tocino=new Ingrediente();
-		tocino.setNombre("Tocino");
-		tocino.setCantidad("200.0");
-		tocino.setUnidad("gramos");
-		tocino.setCalorías("1082.0");
+
+		Ingrediente tocino = new Ingrediente("Tocino", "200.0", "gramos", "1082.0");
 		addIngrediente(tocino);
-		
-		//Crear recetas 
-		Receta cocidoMadrileño= new Receta();
-		cocidoMadrileño.setFechaPublicacion("2018-03-02");
-		cocidoMadrileño.setNombre("Cocido madrileño");
-		cocidoMadrileño.setDescripcion("Remojar los garbanzos la noche anterior en agua templada" + 
-				" con un poco de sal. A la mañana siguiente, sacarlos y escurrirlos. Colocar" + 
-				" en una cazuela grande...");
-		cocidoMadrileño.setFoto("");
-		cocidoMadrileño.setnComensales("6");
-		List<String> s=new ArrayList<String>();
-		s.add("huevo"); s.add("gluten");
-		cocidoMadrileño.setAlergenos(s);
+
+		// Crear recetas
+		List<String> s = new ArrayList<String>();
+		s.add("huevo");
+		s.add("gluten");
+		Receta cocidoMadrileño = new Receta("2018-03-02", "Cocido madrileño",
+				"Remojar los garbanzos la noche anterior en agua templada"
+						+ " con un poco de sal. A la mañana siguiente, sacarlos y escurrirlos. Colocar"
+						+ " en una cazuela grande...", "http://foodreams.appspot.com/media/cocido-madrid-2018-03-02.jpg", "6", s);
 		addReceta(cocidoMadrileño);
 		
-		//Añadir ingredientes a las recetas
+		List<String> s1 = new ArrayList<String>();
+		s1.add("huevo");
+		s1.add("gluten");
+		Receta bizcocho= new Receta("2019-02-01", "Bizcocho ", "En primer lugar, batimos los huevos junto con el yogur, el azúcar, el aceite, la harina y la levadura."+
+				"Cuando la masa esté lista, la incorporamos a un molde engrasado y horneamos a 180º C durante 40 minutos en un molde grande."+
+				"Pasado ese tiempo sacamos del horno, dejamos enfriar y servimos con un poco de azúcar glass por encima.", "http://foodreams.appspot.com/media/bizcocho-2019-02-01.jpg", "5", s1);
+		addReceta(bizcocho);
+
+		// Añadir ingredientes a las recetas
 		addIngrediente(cocidoMadrileño.getId(), garbanzos.getId());
 		addIngrediente(cocidoMadrileño.getId(), tocino.getId());
 	}
 
 	@Override
 	public void addIngrediente(Ingrediente i) {
-		String id= "i"+ index++;
+		String id = "i" + index++;
 		i.setId(id);
 		ingredienteMap.put(id, i);
 	}
@@ -80,11 +76,11 @@ public class MapFooDreamsRepository implements FooDreamsRepository {
 
 	@Override
 	public void updateIngrediente(Ingrediente i) {
-		Ingrediente ingrediente= ingredienteMap.get(i.getId());
+		Ingrediente ingrediente = ingredienteMap.get(i.getId());
 		ingrediente.setNombre(i.getNombre());
 		ingrediente.setCantidad(i.getCantidad());
 		ingrediente.setUnidad(i.getUnidad());
-		ingrediente.setCalorías(i.getCalorías());
+		ingrediente.setCalorias(i.getCalorias());
 	}
 
 	@Override
@@ -94,7 +90,7 @@ public class MapFooDreamsRepository implements FooDreamsRepository {
 
 	@Override
 	public void addReceta(Receta r) {
-		String id="r"+ index++;
+		String id = "r" + index++;
 		r.setId(id);
 		recetaMap.put(id, r);
 	}
@@ -126,7 +122,7 @@ public class MapFooDreamsRepository implements FooDreamsRepository {
 
 	@Override
 	public void addIngrediente(String recetaId, String ingredienteId) {
-		Receta receta= getReceta(recetaId);
+		Receta receta = getReceta(recetaId);
 		receta.addIngrediente(ingredienteMap.get(ingredienteId));
 	}
 

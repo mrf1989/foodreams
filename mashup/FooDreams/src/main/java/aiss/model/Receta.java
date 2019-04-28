@@ -16,6 +16,19 @@ public class Receta {
 
 	public Receta() {
 	}
+	
+
+	public Receta(String fechaPublicacion, String nombre, String descripcion, String foto, String nComensales,
+			List<String> alergenos) {
+		super();
+		this.fechaPublicacion = fechaPublicacion;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.foto = foto;
+		this.nComensales = nComensales;
+		this.alergenos = alergenos;
+	}
+
 
 	public Receta(String nombre) {
 		this.nombre = nombre;
