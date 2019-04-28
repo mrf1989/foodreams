@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.ws.rs.core.Application;
-import aiss.api.resources.RecipeResource;
+import aiss.api.resources.RecetaResource;
 
 public class FooDreamsApplication extends Application {
 	
@@ -15,7 +15,7 @@ public class FooDreamsApplication extends Application {
 	// so that they can be found by RESTEasy.
 	public FooDreamsApplication() {
 
-		singletons.add(RecipeResource.getInstance());
+		singletons.add(RecetaResource.getInstance());
 	}
 	
 	@Override
