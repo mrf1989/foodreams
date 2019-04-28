@@ -1,7 +1,15 @@
 package aiss.api.resources;
 
-import javax.ws.rs.Path;
+import java.util.Collection;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+
+import org.jboss.resteasy.spi.NotFoundException;
+
+import aiss.model.Ingrediente;
 import aiss.model.repository.FooDreamsRepository;
 import aiss.model.repository.MapFooDreamsRepository;
 
@@ -21,4 +29,24 @@ public class IngredienteResource {
 			instance = new IngredienteResource();
 		return instance;
 	}
+	
+	@GET
+	@Produces("application/json")
+	public Collection<Ingrediente> getAll(){
+		return repository.getAllIngredientes();
+	}
+	
+	@GET
+	@Path("/{id}")
+	@Produces("application/json")
+	public Ingrediente get(@PathParam("id") String id) {
+		Ingrediente ingrediente = repository.getIngrediente(id);
+		
+		if(ingrediente==null) {
+			throw new NotFoundException("El ingrediente con id="+id+" no ha sido encontrado");
+		}
+		return ingrediente;
+	}
+	
+	
 }
