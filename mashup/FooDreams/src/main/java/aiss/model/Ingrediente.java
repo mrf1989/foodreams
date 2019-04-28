@@ -6,27 +6,27 @@ public class Ingrediente {
 	private String nombre;
 	private String cantidad;
 	private String unidad;
-	private String calorías;
+	private String calorias;
 
 	public Ingrediente() {
 
 	}
 
-	public Ingrediente(String nombre, String cantidad, String unidad, String calorías) {
+	public Ingrediente(String nombre, String cantidad, String unidad, String calorias) {
 		super();
 		this.nombre = nombre;
 		this.cantidad = cantidad;
 		this.unidad = unidad;
-		this.calorías = calorías;
+		this.calorias = calorias;
 	}
 
-	public Ingrediente(String id, String nombre, String cantidad, String unidad, String calorías) {
+	public Ingrediente(String id, String nombre, String cantidad, String unidad, String calorias) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.cantidad = cantidad;
 		this.unidad = unidad;
-		this.calorías = calorías;
+		this.calorias = calorias;
 	}
 
 	public String getId() {
@@ -61,12 +61,12 @@ public class Ingrediente {
 		this.unidad = unidad;
 	}
 
-	public String getCalorías() {
-		return calorías;
+	public String getCalorias() {
+		return calorias;
 	}
 
-	public void setCalorías(String calorías) {
-		this.calorías = calorías;
+	public void setCalorias(String calorias) {
+		this.calorias = calorias;
 	}
 
 }

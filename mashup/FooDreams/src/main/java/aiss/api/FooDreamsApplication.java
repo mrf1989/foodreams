@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.ws.rs.core.Application;
+
+import aiss.api.resources.IngredienteResource;
 import aiss.api.resources.RecetaResource;
 
 public class FooDreamsApplication extends Application {
@@ -16,6 +18,7 @@ public class FooDreamsApplication extends Application {
 	public FooDreamsApplication() {
 
 		singletons.add(RecetaResource.getInstance());
+		singletons.add(IngredienteResource.getInstance());
 	}
 	
 	@Override
