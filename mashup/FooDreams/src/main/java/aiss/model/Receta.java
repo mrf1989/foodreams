@@ -103,7 +103,7 @@ public class Receta {
 		return ingredientes;
 	}
 
-	public Ingrediente getIngredientes(String id) {
+	public Ingrediente getIngrediente(String id) {
 		if (ingredientes == null) {
 			return null;
 		}
@@ -132,7 +132,7 @@ public class Receta {
 	}
 
 	public void deleteIngrediente(String id) {
-		Ingrediente i = getIngredientes(id);
+		Ingrediente i = getIngrediente(id);
 		if (i != null)
 			ingredientes.remove(i);
 	}
