@@ -1,4 +1,4 @@
-package aiss.model;
+package aiss.model.foodreams;
 
 import java.util.ArrayList;
 import java.util.List;
