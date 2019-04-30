@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import aiss.model.Ingrediente;
-import aiss.model.Receta;
+import aiss.model.foodreams.Ingrediente;
+import aiss.model.foodreams.Receta;
 
 public class MapFooDreamsRepository implements FooDreamsRepository {
 	Map<String, Receta> recetaMap;

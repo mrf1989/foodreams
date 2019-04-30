@@ -20,7 +20,7 @@ import javax.ws.rs.core.UriInfo;
 import org.jboss.resteasy.spi.BadRequestException;
 import org.jboss.resteasy.spi.NotFoundException;
 
-import aiss.model.Ingrediente;
+import aiss.model.foodreams.Ingrediente;
 import aiss.model.repository.FooDreamsRepository;
 import aiss.model.repository.MapFooDreamsRepository;
 
