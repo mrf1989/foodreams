@@ -2,6 +2,7 @@ package aiss.model.resources;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.restlet.resource.ClientResource;
@@ -21,6 +22,8 @@ public class FlickrResource {
 		String uri = "https://api.flickr.com/services/rest/?method=flickr.photos.search&text=" + text +
 				"&api_key=" + FLICKR_API_KEY + "&per_page=12&tags=comida,receta,salud,bienestar"
 				+ "&content-type=1&format=json&nojsoncallback=1";
+		
+		log.log(Level.FINE, "Solicitud GET a Flickr API: " + uri);
 		
 		ClientResource cr = new ClientResource(uri);
 		FotoSearch fotoSearch = cr.get(FotoSearch.class);
