@@ -43,7 +43,7 @@ public class YoutubeResource {
 		return vs;	
 	}
 	
-	public Playlists getPlaylists() {
+	public Playlists getPlaylists() throws UnsupportedEncodingException {
 		String uri = baseURL + "/playlists?part=snippet&mine=true";
 		ClientResource cr = new ClientResource(uri);
 		
@@ -63,7 +63,7 @@ public class YoutubeResource {
 		}
 	}
 	
-	public boolean insertPlaylist(String title, String description) {
+	public boolean insertPlaylist(String title, String description) throws UnsupportedEncodingException {
 		String uri = baseURL + "/playlists?part=snippet";
 		ClientResource cr = new ClientResource(uri);
 		
