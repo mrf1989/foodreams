@@ -99,4 +99,14 @@
     <servlet-name>NewPlaylistController</servlet-name>
     <url-pattern>/NewPlaylistController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddToPlaylistController</display-name>
+    <servlet-name>AddToPlaylistController</servlet-name>
+    <servlet-class>aiss.controller.AddToPlaylistController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToPlaylistController</servlet-name>
+    <url-pattern>/AddToPlaylistController</url-pattern>
+  </servlet-mapping>
 </web-app>

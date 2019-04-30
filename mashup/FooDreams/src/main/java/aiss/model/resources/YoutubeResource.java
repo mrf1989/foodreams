@@ -13,6 +13,7 @@ import org.restlet.resource.ResourceException;
 import aiss.model.youtube.NewPlaylist;
 import aiss.model.youtube.Playlists;
 import aiss.model.youtube.Snippet_;
+import aiss.model.youtube.Status;
 import aiss.model.youtube.VideoSearch;
 
 public class YoutubeResource {
@@ -44,7 +45,7 @@ public class YoutubeResource {
 	}
 	
 	public Playlists getPlaylists() throws UnsupportedEncodingException {
-		String uri = baseURL + "/playlists?part=snippet&mine=true";
+		String uri = baseURL + "/playlists?part=snippet&mine=true&maxResults=10";
 		ClientResource cr = new ClientResource(uri);
 		
 		ChallengeResponse chr = new ChallengeResponse(ChallengeScheme.HTTP_OAUTH_BEARER);
@@ -64,7 +65,7 @@ public class YoutubeResource {
 	}
 	
 	public boolean insertPlaylist(String title, String description) throws UnsupportedEncodingException {
-		String uri = baseURL + "/playlists?part=snippet";
+		String uri = baseURL + "/playlists?part=snippet,status";
 		ClientResource cr = new ClientResource(uri);
 		
 		ChallengeResponse chr = new ChallengeResponse(ChallengeScheme.HTTP_OAUTH_BEARER);
@@ -72,11 +73,15 @@ public class YoutubeResource {
         cr.setChallengeResponse(chr);
         
         Snippet_ newPlaylist = new Snippet_();
-        // TODO
+        Status newPlaylistStatus = new Status();
+        
         newPlaylist.setTitle("fooDreams - " + title);
         newPlaylist.setDescription(description);
+        newPlaylistStatus.setPrivacyStatus("public");
+        
         NewPlaylist p = new NewPlaylist();
         p.setSnippet(newPlaylist);
+        p.setStatus(newPlaylistStatus);
         
         try {
 			cr.post(p, MediaType.APPLICATION_ALL_JSON);

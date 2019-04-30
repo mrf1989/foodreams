@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>fooDreams - Videos</title>
+<title>fooDreams - Vídeos</title>
 <%@ include file="includes/head.jsp" %>
 <%@ include file="includes/header.jsp" %>
 	<div class="container">
@@ -13,7 +13,7 @@
 				<h2>Resultados sobre: "<c:out value="${param.q}"/>"</h2>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row my-3">
 			<c:forEach items="${requestScope.videos}" var="video">
 				<div class="col-md-6 col-sm-12">
 					<div class="card video-module">
