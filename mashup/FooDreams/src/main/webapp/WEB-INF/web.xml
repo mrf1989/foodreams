@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:web="http://java.sun.com/xml/ns/javaee" 
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
@@ -69,20 +66,17 @@
     </init-param>
     <init-param>
       <param-name>onSuccess</param-name>
-      <param-value>redirect:/youtubePlaylists</param-value>
+      <param-value>redirect:/</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>YoutubeOAuth2Callback</servlet-name>
     <url-pattern>/oauth2callback/Youtube</url-pattern>
   </servlet-mapping>
-  
-  
   <context-param>
     <param-name>resteasy.servlet.mapping.prefix</param-name>
     <param-value>/api</param-value>
   </context-param>
-  
   <servlet>
     <servlet-name>Resteasy</servlet-name>
     <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
@@ -91,10 +85,18 @@
       <param-value>aiss.api.FooDreamsApplication</param-value>
     </init-param>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>Resteasy</servlet-name>
     <url-pattern>/api/*</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <display-name>NewPlaylistController</display-name>
+    <servlet-name>NewPlaylistController</servlet-name>
+    <servlet-class>aiss.controller.NewPlaylistController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewPlaylistController</servlet-name>
+    <url-pattern>/NewPlaylistController</url-pattern>
+  </servlet-mapping>
 </web-app>

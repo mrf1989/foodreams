@@ -34,12 +34,14 @@ public class PhotosController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String q = request.getParameter("q");
 		RequestDispatcher rd = null;
+
+		log.log(Level.FINE, "Buscando en Flickr fotos de: " + q);
 		
 		FlickrResource flickr = new FlickrResource();
 		FotoSearch flickrResults = flickr.getFotos(q);
 		
 		if (flickrResults != null) {
-			log.log(Level.INFO, "Total de fotos encontradas: " + flickrResults.getPhotos().getPhoto().size());
+			log.log(Level.FINE, "Total de fotos encontradas: " + flickrResults.getPhotos().getPhoto().size());
 			rd = request.getRequestDispatcher("/fotos.jsp");
 			request.setAttribute("fotos", flickrResults.getPhotos().getPhoto());
 		}

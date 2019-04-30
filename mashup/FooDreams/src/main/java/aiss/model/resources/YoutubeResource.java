@@ -73,7 +73,7 @@ public class YoutubeResource {
         
         Snippet_ newPlaylist = new Snippet_();
         // TODO
-        newPlaylist.setTitle("FooDreams: " + title);
+        newPlaylist.setTitle("fooDreams - " + title);
         newPlaylist.setDescription(description);
         NewPlaylist p = new NewPlaylist();
         p.setSnippet(newPlaylist);
