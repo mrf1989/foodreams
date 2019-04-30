@@ -2,6 +2,7 @@ package aiss.model.resources;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.restlet.resource.ClientResource;
@@ -33,7 +34,8 @@ public class EdamamResource {
 			uri = BASE_URL + "&q=" + q;
 		}
 		
-		log.info("Petición a: " + uri);
+		log.log(Level.FINE, "Solicitud GET a Edamam API: " + uri);
+
 		ClientResource cr = new ClientResource(uri);
 		RecetaSearch recetaSearch = cr.get(RecetaSearch.class);
 		
