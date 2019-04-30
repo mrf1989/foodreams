@@ -4,17 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>fooDreams - Nueva playlist</title>
 <%@ include file="includes/head.jsp" %>
 <%@ include file="includes/header.jsp" %>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h2>Crear nueva playlist fooDreams</h2>
+		<div class="row my-3">
+			<div class="col-md-6 offset-md-3">
+				<h2>Nueva playlist</h2>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-12">
+		<div class="row my-3">
+			<div class="col-md-6 offset-md-3">
 				<form action="NewPlaylistController" method="GET">
 					<div class="form-group">
 						<label for="titulo">Título</label>

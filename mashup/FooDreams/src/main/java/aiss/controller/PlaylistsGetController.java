@@ -1,6 +1,8 @@
 package aiss.controller;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import aiss.model.resources.YoutubeResource;
+import aiss.model.youtube.Item_;
 import aiss.model.youtube.Playlists;
 
 /**
@@ -35,18 +38,26 @@ public class PlaylistsGetController extends HttpServlet {
 		if (accessToken != null && !"".equals(accessToken)) {
 			YoutubeResource ytResource = new YoutubeResource(accessToken);
 			Playlists playlists = ytResource.getPlaylists();
-			log.info("Encontradas " + playlists.getItems().size() + " playlists...");
-			if (playlists != null && playlists.getItems() != null && playlists.getItems().size() > 0 &&
-					playlists.getItems().get(0) != null) {
-				request.setAttribute("playlists", playlists.getItems());
+			
+			List<Item_> fDPlaylists = playlists.getItems();
+			for (int i = 0; i < fDPlaylists.size(); i++) {
+				if (!fDPlaylists.get(i).getSnippet().getTitle().contains("fooDreams - ")) {
+					fDPlaylists.remove(i);
+					i--;
+				}
+			}
+			log.log(Level.FINE, "Encontradas " + fDPlaylists.size() + " playlists de FooDreams.");
+			
+			if (fDPlaylists != null && fDPlaylists.size() > 0 && fDPlaylists.get(0) != null) {
+				request.setAttribute("playlists", fDPlaylists);
 				request.getRequestDispatcher("/perfil.jsp").forward(request, response);
 			} else {
-				log.warning("No se encontraron playlists para el usuario");
+				log.log(Level.WARNING, "No se encontraron playlists para el usuario.");
 				request.getRequestDispatcher("/").forward(request, response);
 			}
 			
 		} else {
-			log.info("Intentando acceder al servicio de playlists de Youtube sin accessToken. Redirigiendo al OAuth servlet");
+			log.log(Level.INFO, "Intentando acceder al servicio de playlists de Youtube sin accessToken. Redirigiendo al OAuth servlet.");
 			request.getRequestDispatcher("/AuthController/Youtube").forward(request, response);
 		}
 	}
