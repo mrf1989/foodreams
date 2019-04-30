@@ -2,8 +2,8 @@ package aiss.model.repository;
 
 import java.util.Collection;
 
-import aiss.model.Ingrediente;
-import aiss.model.Receta;
+import aiss.model.foodreams.Ingrediente;
+import aiss.model.foodreams.Receta;
 
 public interface FooDreamsRepository {
 	// Ingredientes

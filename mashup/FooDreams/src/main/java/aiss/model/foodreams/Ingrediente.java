@@ -1,4 +1,4 @@
- package aiss.model;
+ package aiss.model.foodreams;
 
 public class Ingrediente {
 
