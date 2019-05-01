@@ -27,6 +27,19 @@
 								<iframe class="embed-responsive-item" width="500" height="315" src="https://www.youtube.com/embed/videoseries?list=<c:out value="${playlist.id}" />" frameborder="0" allowfullscreen></iframe>
 							</div>
 				        </div>
+				        <div class="card-body">
+							<div class="row">
+								<div class="col-md-8 col-sm-12">
+									<h3><c:out value="${playlist.snippet.title}" /></h3>
+								</div>
+								<div class="col-md-4 col-sm-12 d-flex justify-content-end">
+									<form action="DeletePlaylistController" method="GET">
+										<input type="hidden" name="playlistId" value="<c:out value="${playlist.id}" />" />
+										<button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
+									</form>
+								</div>
+							</div>
+				        </div>
 					</div>        
 				</div>     
 			</c:forEach>

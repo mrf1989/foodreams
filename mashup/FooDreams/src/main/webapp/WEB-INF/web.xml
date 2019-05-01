@@ -109,4 +109,14 @@
     <servlet-name>AddToPlaylistController</servlet-name>
     <url-pattern>/AddToPlaylistController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeletePlaylistController</display-name>
+    <servlet-name>DeletePlaylistController</servlet-name>
+    <servlet-class>aiss.controller.DeletePlaylistController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePlaylistController</servlet-name>
+    <url-pattern>/DeletePlaylistController</url-pattern>
+  </servlet-mapping>
 </web-app>
