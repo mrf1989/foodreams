@@ -42,11 +42,11 @@ public class NewPlaylist {
     
     @JsonProperty("id")
     public String getId() {
-        return id;
+    	return id;
     }
-
+    
     @JsonProperty("id")
     public void setId(String id) {
-        this.id = id;
+    	this.id = id;
     }
 }

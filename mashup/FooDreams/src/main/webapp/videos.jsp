@@ -11,6 +11,15 @@
 		<div class="row my-3">
 			<div class="col-md-12">
 				<h2>Resultados sobre: "<c:out value="${param.q}"/>"</h2>
+			<c:if test="${not empty alert}">
+				<!-- Success alert si se añade correctamente el vídeo a la playlist seleccionada -->
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+  					¡El vídeo se ha añadido correctamente a tu playlist!
+  					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    					<span aria-hidden="true">&times;</span>
+  					</button>
+				</div>
+			</c:if>
 			</div>
 		</div>
 		<div class="row my-3">
