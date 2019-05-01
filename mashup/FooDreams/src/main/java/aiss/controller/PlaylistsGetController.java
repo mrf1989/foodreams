@@ -53,7 +53,7 @@ public class PlaylistsGetController extends HttpServlet {
 				request.getRequestDispatcher("/perfil.jsp").forward(request, response);
 			} else {
 				log.log(Level.WARNING, "No se encontraron playlists para el usuario.");
-				request.getRequestDispatcher("/").forward(request, response);
+				request.getRequestDispatcher("/formPlaylists.jsp").forward(request, response);
 			}
 			
 		} else {

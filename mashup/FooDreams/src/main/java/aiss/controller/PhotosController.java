@@ -44,6 +44,9 @@ public class PhotosController extends HttpServlet {
 			log.log(Level.FINE, "Total de fotos encontradas: " + flickrResults.getPhotos().getPhoto().size());
 			rd = request.getRequestDispatcher("/fotos.jsp");
 			request.setAttribute("fotos", flickrResults.getPhotos().getPhoto());
+		} else {
+			log.log(Level.WARNING, "No se han obtenido fotos.");
+			rd = request.getRequestDispatcher("/error.jsp");
 		}
 		rd.forward(request, response);
 			
