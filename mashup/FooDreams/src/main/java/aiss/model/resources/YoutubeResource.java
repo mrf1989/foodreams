@@ -11,7 +11,9 @@ import org.restlet.resource.ClientResource;
 import org.restlet.resource.ResourceException;
 
 import aiss.model.youtube.NewPlaylist;
+import aiss.model.youtube.PlaylistItem;
 import aiss.model.youtube.Playlists;
+import aiss.model.youtube.ResourceId;
 import aiss.model.youtube.Snippet_;
 import aiss.model.youtube.Status;
 import aiss.model.youtube.VideoSearch;
@@ -88,6 +90,54 @@ public class YoutubeResource {
 			return true;
 		} catch (ResourceException re) {
 			log.warning("Error al insertar una nueva playlist: " + cr.getResponse().getStatus());
+			log.warning(uri);
+			return false;
+		}
+	}
+	
+	public boolean addVideoToPlaylist(String playlistId, String videoId) {
+		String uri = baseURL + "/playlistItems?part=snippet";
+		ClientResource cr = new ClientResource(uri);
+		
+		ChallengeResponse chr = new ChallengeResponse(ChallengeScheme.HTTP_OAUTH_BEARER);
+        chr.setRawValue(access_token);
+        cr.setChallengeResponse(chr);
+        
+        ResourceId newResourceId = new ResourceId();
+        newResourceId.setKind("youtube#video");
+        newResourceId.setVideoId(videoId);
+        
+        Snippet_ newSnippet = new Snippet_();
+        newSnippet.setPlaylistId(playlistId);
+        newSnippet.setResourceId(newResourceId);
+        
+        PlaylistItem newPlaylistItem = new PlaylistItem();
+        newPlaylistItem.setSnippet(newSnippet);
+        
+        try {
+			cr.post(newPlaylistItem, MediaType.APPLICATION_ALL_JSON);
+			return true;
+		} catch (ResourceException re) {
+			log.warning("Error al insertar un nuevo vídeo en la playlist: " + cr.getResponse().getStatus());
+			log.warning(uri);
+			return false;
+		}
+	}
+	
+	public boolean deletePlaylist(String playlistId) {
+		String uri = baseURL + "/playlists?id=" + playlistId;
+		
+		ClientResource cr = new ClientResource(uri);
+		
+		ChallengeResponse chr = new ChallengeResponse(ChallengeScheme.HTTP_OAUTH_BEARER);
+        chr.setRawValue(access_token);
+        cr.setChallengeResponse(chr);
+        
+        try {
+			cr.delete();
+			return true;
+		} catch (ResourceException re) {
+			log.warning("Error al eliminar la playlist: " + cr.getResponse().getStatus());
 			log.warning(uri);
 			return false;
 		}

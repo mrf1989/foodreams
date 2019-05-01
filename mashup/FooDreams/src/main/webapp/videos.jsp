@@ -21,10 +21,12 @@
 							<div class="embed-responsive embed-responsive-16by9">
 								<iframe class="embed-responsive-item" width="500" height="315" src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}" />" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 							</div>
-							<form method="post" action="CONTROLADOR">
+							<form method="POST" action="AddToPlaylistController">
 								<div class="form-row">
 	                                <div class="form-group col-md-8 col-sm-8">
-	                                    <select name="playlist" class="form-control">
+	                                	<input type="hidden" name="videoId" value="<c:out value="${video.id.videoId}" />" />
+	                                	<input type="hidden" name="q" value="<c:out value="${param.q}" />" />
+	                                    <select name="playlistId" class="form-control">
 	                                    	<option value="">-Selecciona una playlist-</option>
 	                                    <c:forEach items="${requestScope.playlists}" var="playlist">
 							                <option value="${playlist.id}"><c:out value="${playlist.snippet.title}"></c:out></option>	                                    	

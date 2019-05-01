@@ -38,6 +38,10 @@ public class VideosController extends HttpServlet {
 		String q = request.getParameter("q");
 		String accessToken = (String) request.getSession().getAttribute("Youtube-token");
 		
+		if (q.isEmpty()) {
+			q = (String) request.getAttribute("q");
+		}
+		
 		if (accessToken != null && !"".equals(accessToken)) {
 			// Solicitud de las playlists de Youtube del usuario
 			YoutubeResource ytResource = new YoutubeResource(accessToken);

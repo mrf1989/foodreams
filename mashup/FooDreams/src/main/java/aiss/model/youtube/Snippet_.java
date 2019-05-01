@@ -19,7 +19,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "description",
     "thumbnails",
     "channelTitle",
-    "localized"
+    "localized",
+    "resourceId",
+    "playlistId"
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class Snippet_ {
@@ -38,6 +40,10 @@ public class Snippet_ {
     private String channelTitle;
     @JsonProperty("localized")
     private Localized localized;
+    @JsonProperty("resourceId")
+    private ResourceId resourceId;
+    @JsonProperty("playlistId")
+    private String playlistId;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -109,6 +115,26 @@ public class Snippet_ {
     @JsonProperty("localized")
     public void setLocalized(Localized localized) {
         this.localized = localized;
+    }
+    
+    @JsonProperty("resourceId")
+    public ResourceId getResourceId() {
+    	return resourceId;
+    }
+    
+    @JsonProperty("resourceId")
+    public void setResourceId(ResourceId resourceId) {
+    	this.resourceId = resourceId;
+    }
+    
+    @JsonProperty("playlistId")
+    public String getPlaylistId() {
+    	return playlistId;
+    }
+    
+    @JsonProperty("playlistId")
+    public void setPlaylistId(String playlistId) {
+    	this.playlistId = playlistId;
     }
 
     @JsonAnyGetter
