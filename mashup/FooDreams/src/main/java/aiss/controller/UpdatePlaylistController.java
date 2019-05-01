@@ -46,7 +46,8 @@ public class UpdatePlaylistController extends HttpServlet {
 					request.setAttribute("playlist", playlist.getItems().get(0));
 					request.getRequestDispatcher("/formPlaylists.jsp").forward(request, response);
 				} else {
-					// TODO No existe la playlist. ERROR
+					log.log(Level.WARNING, "No existe la playlist.");
+					request.getRequestDispatcher("/error.jsp").forward(request, response);
 				}	
 			} else {
 				boolean updatedPlaylist = ytResource.updatePlaylist(id, title, description);
@@ -56,7 +57,7 @@ public class UpdatePlaylistController extends HttpServlet {
 					request.getRequestDispatcher("/youtubePlaylists").forward(request, response);
 				} else {
 					log.log(Level.WARNING, "No se pudo actualizar la playlist.");
-					request.getRequestDispatcher("/").forward(request, response);
+					request.getRequestDispatcher("/error.jsp").forward(request, response);
 				}
 			}
 			

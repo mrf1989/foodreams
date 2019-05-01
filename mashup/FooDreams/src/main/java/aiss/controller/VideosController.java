@@ -71,6 +71,9 @@ public class VideosController extends HttpServlet {
 			if(videosResult != null) {
 				rd = request.getRequestDispatcher("/videos.jsp");
 				request.setAttribute("videos", videosResult.getItems());
+			} else {
+				log.log(Level.WARNING, "No se encontraron vídeos.");
+				request.getRequestDispatcher("/error.jsp").forward(request, response);
 			}
 			rd.forward(request, response);
 			
