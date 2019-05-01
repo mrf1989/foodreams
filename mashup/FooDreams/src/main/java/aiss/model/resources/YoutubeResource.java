@@ -106,6 +106,9 @@ public class YoutubeResource {
         p.setSnippet(newPlaylist);
         p.setStatus(newPlaylistStatus);
         
+        log.info("Título de la nueva playlist: " + p.getSnippet().getTitle());
+        log.info("Descripción de la nueva playlist: " + p.getSnippet().getDescription());
+        
         try {
 			cr.post(p, MediaType.APPLICATION_ALL_JSON);
 			return true;

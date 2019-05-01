@@ -45,6 +45,7 @@ public class AddToPlaylistController extends HttpServlet {
 			if (addVideo) {
 				log.log(Level.INFO, "Nuevo vídeo añadido con éxito.");
 				request.setAttribute("q", q);
+				request.setAttribute("alert", true);
 				request.getRequestDispatcher("/VideosController").forward(request, response);
 			} else {
 				log.log(Level.WARNING, "No se pudo añadir el vídeo a la playlist.");
