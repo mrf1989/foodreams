@@ -29,10 +29,19 @@
 				        </div>
 				        <div class="card-body">
 							<div class="row">
-								<div class="col-md-8 col-sm-12">
-									<h3><c:out value="${playlist.snippet.title}" /></h3>
+								<div class="col-md-12">
+									<h4 class="playlistTitle"><c:out value="${playlist.snippet.title}" /></h4>
 								</div>
-								<div class="col-md-4 col-sm-12 d-flex justify-content-end">
+							</div>	
+							<div class="row">
+								<div class="col-md-12"><c:out value="${playlist.snippet.description}" /></div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 d-flex justify-content-between">
+									<form action="UpdatePlaylistController" method="GET">
+										<input type="hidden" name="id" value="<c:out value="${playlist.id}" />" />
+										<button type="submit" class="btn btn-secondary"><i class="fas fa-edit"></i> Editar</button>
+									</form>
 									<form action="DeletePlaylistController" method="GET">
 										<input type="hidden" name="playlistId" value="<c:out value="${playlist.id}" />" />
 										<button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
