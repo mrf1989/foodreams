@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Ops! La has cagado amiguete...</h1>
+	<h1>Ops! La has cagado amiguete...se te está pegando la comida!</h1>
 	<p><a href="/">Volver</a></p>
 </body>
 </html>

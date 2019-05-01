@@ -39,21 +39,26 @@ public class PlaylistsGetController extends HttpServlet {
 			YoutubeResource ytResource = new YoutubeResource(accessToken);
 			Playlists playlists = ytResource.getPlaylists();
 			
-			List<Item_> fDPlaylists = playlists.getItems();
-			for (int i = 0; i < fDPlaylists.size(); i++) {
-				if (!fDPlaylists.get(i).getSnippet().getTitle().contains("fooDreams - ")) {
-					fDPlaylists.remove(i);
-					i--;
+			if (playlists != null) {
+				List<Item_> fDPlaylists = playlists.getItems();
+				for (int i = 0; i < fDPlaylists.size(); i++) {
+					if (!fDPlaylists.get(i).getSnippet().getTitle().contains("fooDreams - ")) {
+						fDPlaylists.remove(i);
+						i--;
+					}
 				}
-			}
-			log.log(Level.FINE, "Encontradas " + fDPlaylists.size() + " playlists de FooDreams.");
-			
-			if (fDPlaylists != null && fDPlaylists.size() > 0 && fDPlaylists.get(0) != null) {
-				request.setAttribute("playlists", fDPlaylists);
-				request.getRequestDispatcher("/perfil.jsp").forward(request, response);
+				log.log(Level.FINE, "Encontradas " + fDPlaylists.size() + " playlists de FooDreams.");
+				
+				if (fDPlaylists != null && fDPlaylists.size() > 0 && fDPlaylists.get(0) != null) {
+					request.setAttribute("playlists", fDPlaylists);
+					request.getRequestDispatcher("/perfil.jsp").forward(request, response);
+				} else {
+					log.log(Level.WARNING, "No se encontraron playlists para el usuario.");
+					request.getRequestDispatcher("/formPlaylists.jsp").forward(request, response);
+				}
 			} else {
 				log.log(Level.WARNING, "No se encontraron playlists para el usuario.");
-				request.getRequestDispatcher("/formPlaylists.jsp").forward(request, response);
+				request.getRequestDispatcher("/error.jsp").forward(request, response);
 			}
 			
 		} else {
