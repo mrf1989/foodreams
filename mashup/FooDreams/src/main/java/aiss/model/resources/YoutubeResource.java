@@ -66,6 +66,27 @@ public class YoutubeResource {
 		}
 	}
 	
+	public Playlists getPlaylist(String playlistId) throws UnsupportedEncodingException {
+		String id = URLEncoder.encode(playlistId, "UTF-8");
+		String uri = baseURL + "/playlists?part=snippet&id=" + id;
+		ClientResource cr = new ClientResource(uri);
+		
+		ChallengeResponse chr = new ChallengeResponse(ChallengeScheme.HTTP_OAUTH_BEARER);
+        chr.setRawValue(access_token);
+        cr.setChallengeResponse(chr);
+        
+        Playlists playlists = null;
+        try {
+        	playlists = cr.get(Playlists.class);
+        	return playlists;
+			
+		} catch (ResourceException re) {
+			log.warning("Error al solicitar la playlist: " + cr.getResponse().getStatus());
+			log.warning(uri);
+			return null;
+		}
+	}
+	
 	public boolean insertPlaylist(String title, String description) throws UnsupportedEncodingException {
 		String uri = baseURL + "/playlists?part=snippet,status";
 		ClientResource cr = new ClientResource(uri);
@@ -95,7 +116,7 @@ public class YoutubeResource {
 		}
 	}
 	
-	public boolean addVideoToPlaylist(String playlistId, String videoId) {
+	public boolean addVideoToPlaylist(String playlistId, String videoId) throws UnsupportedEncodingException {
 		String uri = baseURL + "/playlistItems?part=snippet";
 		ClientResource cr = new ClientResource(uri);
 		
@@ -124,8 +145,38 @@ public class YoutubeResource {
 		}
 	}
 	
-	public boolean deletePlaylist(String playlistId) {
-		String uri = baseURL + "/playlists?id=" + playlistId;
+	public boolean updatePlaylist(String id, String title, String description) {
+		String uri = baseURL + "/playlists?part=snippet,status";
+		ClientResource cr = new ClientResource(uri);
+		
+		ChallengeResponse chr = new ChallengeResponse(ChallengeScheme.HTTP_OAUTH_BEARER);
+        chr.setRawValue(access_token);
+        cr.setChallengeResponse(chr);
+        
+        Snippet_ newSnippet = new Snippet_();
+        newSnippet.setTitle(title);
+        newSnippet.setDescription(description);
+        Status status = new Status();
+        status.setPrivacyStatus("public");
+        
+        NewPlaylist newPlaylist = new NewPlaylist();
+        newPlaylist.setSnippet(newSnippet);
+        newPlaylist.setStatus(status);
+        newPlaylist.setId(id);
+        
+        try {
+			cr.put(newPlaylist, MediaType.APPLICATION_ALL_JSON);
+			return true;
+		} catch (ResourceException re) {
+			log.warning("Error al actualizar la playlist: " + cr.getResponse().getStatus());
+			log.warning(uri);
+			return false;
+		}
+	}
+	
+	public boolean deletePlaylist(String playlistId) throws UnsupportedEncodingException {
+		String id = URLEncoder.encode(playlistId, "UTF-8");
+		String uri = baseURL + "/playlists?id=" + id;
 		
 		ClientResource cr = new ClientResource(uri);
 		

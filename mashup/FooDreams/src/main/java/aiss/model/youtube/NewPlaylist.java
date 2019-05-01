@@ -8,7 +8,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "snippet",
-    "status"
+    "status",
+    "id"
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class NewPlaylist {
@@ -16,6 +17,8 @@ public class NewPlaylist {
     private Snippet_ snippet;
     @JsonProperty("status")
     private Status status;
+    @JsonProperty("id")
+    private String id;
     
     @JsonProperty("snippet")
     public Snippet_ getSnippet() {
@@ -35,5 +38,15 @@ public class NewPlaylist {
     @JsonProperty("status")
     public void setStatus(Status status) {
     	this.status = status;
+    }
+    
+    @JsonProperty("id")
+    public String getId() {
+        return id;
+    }
+
+    @JsonProperty("id")
+    public void setId(String id) {
+        this.id = id;
     }
 }
