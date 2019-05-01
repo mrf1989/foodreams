@@ -37,7 +37,7 @@
 				<c:if test="${not empty playlist}">
 					<input type="hidden" name="playlistId" value="${playlist.id}" />
 				</c:if>
-					<button type="submit" class="btn btn-primary"><%= btnVal %></button>
+					<button type="submit" class="btn btn-primary"><i class="fas fa-utensils"></i> <%= btnVal %></button>
 				</form>
 			</div>
 		</div>

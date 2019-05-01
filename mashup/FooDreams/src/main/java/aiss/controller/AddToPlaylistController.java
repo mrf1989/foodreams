@@ -48,7 +48,7 @@ public class AddToPlaylistController extends HttpServlet {
 				request.getRequestDispatcher("/VideosController").forward(request, response);
 			} else {
 				log.log(Level.WARNING, "No se pudo añadir el vídeo a la playlist.");
-				request.getRequestDispatcher("/").forward(request, response);
+				request.getRequestDispatcher("/error.jsp").forward(request, response);
 			}
 			
 		} else {
