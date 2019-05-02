@@ -46,6 +46,7 @@ public class PhotosController extends HttpServlet {
 			request.setAttribute("fotos", flickrResults.getPhotos().getPhoto());
 		} else {
 			log.log(Level.WARNING, "No se han obtenido fotos.");
+			request.setAttribute("error", "No se encontraron fotos para los términos de búsqueda introducidos.");
 			rd = request.getRequestDispatcher("/error.jsp");
 		}
 		rd.forward(request, response);

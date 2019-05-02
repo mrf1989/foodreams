@@ -47,6 +47,7 @@ public class UpdatePlaylistController extends HttpServlet {
 					request.getRequestDispatcher("/formPlaylists.jsp").forward(request, response);
 				} else {
 					log.log(Level.WARNING, "No existe la playlist.");
+					request.setAttribute("error", "No existe la playlist que pretendes editar.");
 					request.getRequestDispatcher("/error.jsp").forward(request, response);
 				}	
 			} else {
@@ -57,6 +58,7 @@ public class UpdatePlaylistController extends HttpServlet {
 					request.getRequestDispatcher("/youtubePlaylists").forward(request, response);
 				} else {
 					log.log(Level.WARNING, "No se pudo actualizar la playlist.");
+					request.setAttribute("error", "No se pudo actualizar la playlist.");
 					request.getRequestDispatcher("/error.jsp").forward(request, response);
 				}
 			}
