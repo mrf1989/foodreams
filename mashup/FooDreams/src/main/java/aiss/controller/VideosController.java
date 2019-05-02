@@ -61,6 +61,7 @@ public class VideosController extends HttpServlet {
 				request.setAttribute("playlists", fDPlaylists);
 			} else {
 				log.log(Level.INFO, "No se encontraron playlists para el usuario");
+				request.setAttribute("error", "No se encontraron playlists para el usuario, ¿por qué no creas una desde tu perfil?.");
 			}
 			
 			// Solicitud de los vídeos relacionados con el término de búsqueda

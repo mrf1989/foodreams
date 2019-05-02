@@ -43,6 +43,7 @@ public class NewPlaylistController extends HttpServlet {
 				request.getRequestDispatcher("/youtubePlaylists").forward(request, response);
 			} else {
 				log.log(Level.WARNING, "No se pudo crear la playlist.");
+				request.setAttribute("error", "No pudo crear la playlist.");
 				request.getRequestDispatcher("/error.jsp").forward(request, response);
 			}
 

@@ -42,6 +42,7 @@ public class DeletePlaylistController extends HttpServlet {
 				request.getRequestDispatcher("/youtubePlaylists").forward(request, response);
 			} else {
 				log.log(Level.WARNING, "No se pudo eliminar la playlist.");
+				request.setAttribute("error", "No se pudo borrar la playlist.");
 				request.getRequestDispatcher("/error.jsp").forward(request, response);
 			}
 			
