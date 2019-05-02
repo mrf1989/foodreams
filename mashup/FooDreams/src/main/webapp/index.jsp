@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <footer class="footer">
-                        <p>&copy; 2019, <a href="about.html">fooDreams</a ><a href="api.html"> 2MRC - AISS </a></p>
+                        <p>&copy; 2019, <a href="about.html">fooDreams</a > - <a href="docs/index.html"> API </a> - AISS </p>
                     </footer>
                 </div>
             </div>
