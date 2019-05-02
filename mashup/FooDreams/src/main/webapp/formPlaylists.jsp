@@ -29,6 +29,12 @@
 					<div class="form-group">
 						<label for="titulo">Título</label>
 						<input id="titulo" class="form-control" type="text" name="titulo" value="${playlist.snippet.title}" autocomplete="off">
+						<script>
+							var titulo = document.getElementById("titulo");
+							if (titulo != "") {
+								titulo.value = titulo.value.replace("fooDreams - ", "");
+							}
+						</script>
 					</div>
 					<div class="form-group">
 						<label for="descripcion">Descripción</label>
