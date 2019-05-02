@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.lang.Math" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,9 +27,9 @@
 			<script src="https://d3js.org/d3.v5.min.js"></script>
 			<script src="c3/c3.min.js"></script>
 			<% Integer i = 2; %>
-			<!-- Módulo para cada resultado de búsqueda -->
 			<c:forEach items="${requestScope.recetas}" var="receta">
-			<% Long id = java.lang.Math.round(java.lang.Math.random() * 200) + 30; %>
+			<!-- Módulo para cada resultado de búsqueda -->
+			<% Long id = Math.round((Math.random() + Math.random()) * 200) + 20; %>
 			<c:set var="rand"><%= id %></c:set>
 				<% if (i > 0) { %>
 				<div class="col-md-6 col-sm-12">
@@ -59,8 +60,12 @@
 							</div>
 							<div class="receta-opt">
 								<div class="calorias">
-									<!-- No se encuentra ENERC_KCAL en TotalNutrients -->
-									<p>Calorías: <span id="caloriasReceta">${receta.recipe.calories / receta.recipe.yield}</span></p>
+									<p>Calorías: <span id="caloriasReceta">${receta.recipe.calories / receta.recipe.yield}</span> kcal / persona</p>
+									<script>
+										var caloriasReceta = document.getElementById('caloriasReceta');
+										caloriasReceta.innerHTML = Math.round(caloriasReceta.innerHTML * 100) / 100;
+										caloriasReceta.removeAttribute("id");
+									</script>
 								</div>
 								<form action="VideosController" method="get">
 									<input type="hidden" name="q" value="${receta.recipe.label}">
@@ -80,11 +85,12 @@
 				<input name="${rand}" value="<c:out value="${receta.recipe.totalNutrients.PROCNT.quantity / receta.recipe.yield}" />" type="hidden"/>
 				<script>
 					var selector = '#chart'+<%=id %>;
-					var carbs = document.getElementsByName('<%=id %>')[0].value;
-					var sugar = document.getElementsByName('<%=id %>')[1].value;
-					var fat = document.getElementsByName('<%=id %>')[2].value;
-					var fiber = document.getElementsByName('<%=id %>')[3].value;
-					var protein = document.getElementsByName('<%=id %>')[4].value;
+					var nutrientes = document.getElementsByName('<%=id %>');
+					var carbs = Math.round(nutrientes[0].value * 100) / 100;
+					var sugar = Math.round(nutrientes[1].value * 100) / 100;
+					var fat = Math.round(nutrientes[2].value * 100) / 100;
+					var fiber = Math.round(nutrientes[3].value * 100) / 100;
+					var protein = Math.round(nutrientes[4].value * 100) / 100;
 					
 					var graph = c3.generate({
 						bindto: selector,
