@@ -50,7 +50,7 @@ public class UpdatePlaylistController extends HttpServlet {
 					request.getRequestDispatcher("/error.jsp").forward(request, response);
 				}	
 			} else {
-				boolean updatedPlaylist = ytResource.updatePlaylist(id, title, description);
+				boolean updatedPlaylist = ytResource.updatePlaylist(id, "fooDreams - " + title, description);
 				
 				if (updatedPlaylist) {
 					log.log(Level.INFO, "Playlist actualizada con éxito.");

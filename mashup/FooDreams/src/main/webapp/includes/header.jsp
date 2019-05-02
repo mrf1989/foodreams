@@ -3,10 +3,11 @@
 		<div class="row d-flex align-items-center">
 			<div class="col-sm-12 col-md-3">
 				<div class="logo-container">
-					<a href="/"><img class="img-fluid logo" src="images/logos/fooDreams-logo-md.png" alt="Logotipo de fooDreams" /></a>
+					<a href="/"><img class="img-fluid header-md-logo" src="images/logos/fooDreams-logo-md.png" alt="Logotipo de fooDreams" /></a>
+					<a href="/"><img class="img-fluid header-sm-logo" src="images/logos/fooDreams-logo-sm.png" alt="Logotipo de fooDreams" /></a>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-7">
+			<div id="filter" class="col-sm-12 col-md-7 hidden-mobile">
             	<form method="GET" action="SearchController">
                 	<div class="form-row recipe-search">
                   		<div class="form-group col-md-5">
@@ -30,12 +31,11 @@
                     </div>  
             	</form>
 			</div>
-			<div class="col-sm-12 col-md-2">
-				<div class="row d-flex justify-content-end pr-5">
-					<form action="/youtubePlaylists" class="form-inline" action="GET">
-						<button class="btn btn-primary"><i class="fab fa-youtube"></i> Mis playlists</button>
-					</form>
-				</div>
+			<div class="btns-mobile col-sm-12 col-md-2 d-md-flex justify-content-end pr-md-5">
+				<form action="/youtubePlaylists" class="header-btn-playlists form-inline" action="GET">
+					<button class="btn btn-primary"><i class="fab fa-youtube"></i> Mis playlists</button>
+				</form>
+				<button id="btn-filter" class="btn btn-secondary hidden-desktop"><i class="fas fa-arrow-circle-down"></i></button>
 			</div>
 		</div>
 	</header>

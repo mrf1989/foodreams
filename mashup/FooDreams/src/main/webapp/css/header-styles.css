@@ -1,3 +1,15 @@
+.hidden-desktop {
+	display: none;
+}
+
+.header-md-logo {
+	padding-left: 1rem;
+}
+
+.header-sm-logo {
+	display: none;
+}
+
 .header {
     margin-bottom: 32px;
     padding: 15px;
@@ -6,7 +18,7 @@
 	padding: 0;
 }
 .recipe-search {
-	padding-top: 1rem;
+	margin-bottom: -1rem;
 }
 .logo-container {
     display: flex;
@@ -22,6 +34,29 @@
 .btn-header {
 	margin-left: 10px;
 }
-.logo{
-    
+
+@media(max-width: 767px) {
+	.header-sm-logo {
+		display: initial;
+		max-width: 200px;
+		margin-bottom: 1rem;
+	}
+	.header-md-logo {
+		display: none;
+	}
+	.header-btn-playlists {
+		margin-top: 1rem;
+	}
+	.btns-mobile {
+		display: flex;
+		justify-content: space-between !important;
+		align-items: baseline;
+	}
+	.hidden-mobile {
+		display: none;
+	}
+	.hidden-desktop {
+		display: initial;
+	}	
 }
+	

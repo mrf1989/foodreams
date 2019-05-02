@@ -1,30 +1,25 @@
-@media(max-width: 994px) {
-    .btn-search-text {
-        display: none;
-    }
-}
 
-.container {
-    height: 100vh;
-    position: relative;
+.sm-logo {
+	display: none;
 }
 
 .body-bg {
     background-image: url("../images/bg-food.jpg");
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    position: relative;
+    top: 0;
+    bottom: 0;
     height: 100vh;
 }
 
 .body-filter-bg {
     background-color: rgba(0, 0, 0, 0.5);
-    width: 100vw;
-    height: 100vh;
-}
-
-.main-row {
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .copy-marketing {
@@ -32,17 +27,34 @@
 }
 
 .btn-login {
-    margin-top: 50px;
     padding-left: 35px;
     padding-right: 35px;
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
+	padding-top: 3rem;
     color: white;
     width: 100%;
 }
 .footer p {
     text-align: center;
+}
+.footer .fa-heart {
+	color: red;
+}
+
+@media(max-width: 994px) {
+    .btn-search-text {
+        display: none;
+    }
+}
+
+@media(max-width: 480px) {
+	.sm-logo {
+		display: initial;
+		max-width: 80px;
+	}
+	.md-logo {
+		display: none;
+	}
 }

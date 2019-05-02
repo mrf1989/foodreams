@@ -14,7 +14,7 @@
 			<c:if test="${not empty alert}">
 				<!-- Success alert si se añade correctamente el vídeo a la playlist seleccionada -->
 				<div class="alert alert-success alert-dismissible fade show" role="alert">
-  					¡El vídeo se ha añadido correctamente a tu playlist!
+  					<i class="fas fa-check"></i> ¡Genial! El vídeo se ha añadido correctamente a tu playlist.
   					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
     					<span aria-hidden="true">&times;</span>
   					</button>
@@ -31,12 +31,12 @@
 								<iframe class="embed-responsive-item" width="500" height="315" src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}" />" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 							</div>
 							<form method="POST" action="AddToPlaylistController">
-								<div class="form-row">
+								<div class="mt-3 form-row recipe-search">
 	                                <div class="form-group col-md-8 col-sm-8">
 	                                	<input type="hidden" name="videoId" value="<c:out value="${video.id.videoId}" />" />
 	                                	<input type="hidden" name="q" value="<c:out value="${param.q}" />" />
 	                                    <select name="playlistId" class="form-control">
-	                                    	<option value="">-Selecciona una playlist-</option>
+	                                    	<option value="">-- Selecciona una playlist --</option>
 	                                    <c:forEach items="${requestScope.playlists}" var="playlist">
 							                <option value="${playlist.id}"><c:out value="${playlist.snippet.title}"></c:out></option>	                                    	
 	                                    </c:forEach>
