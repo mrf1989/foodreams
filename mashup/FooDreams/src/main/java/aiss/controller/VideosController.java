@@ -37,7 +37,7 @@ public class VideosController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String q = request.getParameter("q");
 		String accessToken = (String) request.getSession().getAttribute("Youtube-token");
-		Boolean alert = (Boolean) request.getAttribute("alert");
+		String alert = (String) request.getAttribute("alert");
 		
 		if (q.isEmpty()) {
 			q = (String) request.getAttribute("q");
@@ -71,8 +71,8 @@ public class VideosController extends HttpServlet {
 
 			if(videosResult != null) {
 				rd = request.getRequestDispatcher("/videos.jsp");
-				if (alert) {
-					request.setAttribute("alert", "success");
+				if (alert == "success") {
+					request.setAttribute("alert", alert);
 				}
 				request.setAttribute("videos", videosResult.getItems());
 			} else {
