@@ -23,7 +23,7 @@
                         <!--Copy marketing-->
                         <div class="row copy-marketing">
                             <div class="col text-center">
-                                <p class="lead p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                                <p class="lead p-2">¡Tripa vacía, corazón sin alegría! ¡Empieza a buscar recetas!</p>
                             </div>
                         </div>
                         <!--fin copy marketing-->
@@ -71,7 +71,7 @@
                     </div>
                    	<div class="col-12">
 	                    <footer class="footer">
-	                        <p>&copy; 2019, <a href="about.html"> fooDreams</a > hecho con <i class="fas fa-heart"></i> y hambre - <a href="docs/index.html">Docs API </a> - AISS </p>
+	                        <p>&copy; 2019, <a href="about.html"> fooDreams</a > hecho con <i class="fas fa-heart"></i> <a href="docs/index.html">Docs API</a></p>
 	                    </footer>
                    	</div>
                 </div>
