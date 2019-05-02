@@ -1,0 +1,469 @@
+swagger: '2.0'
+
+info:
+  description: API de fooDreams para desarrolladores
+  version: 1.0.0
+  title: fooDreams - API
+  
+
+host: foodreams.appspot.com
+basePath: /api
+# tags are used for organizing operations
+tags:
+- name: Ingredientes
+  description: Operaciones disponibles para el recurso ingrediente
+- name: Recetas
+  description: Operaciones disponibles para el recurso receta
+
+paths:
+  /ingredientes:
+    get:
+      
+      tags:
+      - Ingredientes
+      summary: devuelve todos los ingredientes
+      description: |
+        Devuelve todos los ingredientes de la aplicación.
+      produces:
+      - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/listIngredientes'
+        default:
+          description: Unexpected Error
+    
+    post:
+      tags:
+      - Ingredientes
+      operationId: addIngrediente
+      summary: añade un nuevo ingrediente
+      description: |
+        Los datos del ingrediente se deben pasar en el cuerpo de la petición en formato JSON. Dichos datos no pueden contener el id, ya que éste se genera automáticamente en la creación. El único atributo requerido es el nombre del ingrediente.
+        En caso de que [datos] no sean válidos, devuelve un código de estado de error 400 “Bad Request”.
+        En caso de que el ingrediente se añada de forma exitosa, devuelve un código de estado 201 “Created” con la referencia a la URI y al contenido del nuevo ingrediente.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: ingrediente
+        in: body
+        description: Ingrediente a añadir
+        schema:
+          $ref: '#/definitions/postIngrediente'
+      responses:
+        201:
+          description: Created
+        400:
+          description: Bad Request
+          
+    put:
+      tags: 
+      - Ingredientes
+      operationId: updateIngrediente
+      summary: actualiza los datos de un ingrediente
+      description: |
+        Los datos se pasan por el cuerpo de la petición en formato JSON, incluyendo el identificador único “ingrID” como criterio de selección del recurso a actualizar. Dichos datos no pueden contener el id, ya que éste no es modificable.
+        Si el ingrediente no existe, devuelve un código de estado de error 404 “Not Found”.
+        Si la actualización se realiza de forma exitosa, devuelve un código de estado 204 “No Content”.
+      consumes:
+      - application/json 
+      parameters:
+      - name: ingrediente
+        in: body
+        description: Ingrediente a actualizar
+        schema:
+          $ref: '#/definitions/updateIngrediente'
+      responses:
+        204:
+          description: No Content
+        404:
+          description: Not Found
+          
+    
+    
+  
+  /ingredientes/{ingrID}:
+    get:
+      tags:
+      - Ingredientes
+      summary: "devuelve el ingrediente con identificador único {ingrID}"
+      description: |
+        Si el ingrediente no existe, devuelve un código de estado de error 404 “Not Found”.
+      produces:
+      - application/json
+      operationId: getIngrediente
+      parameters:
+        - name: ingrID
+          in: path
+          description: id del ingrediente a devolver
+          required: true
+          type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/listIngredientes'
+        404:
+          description: not found
+          
+    delete:
+      tags:
+      - Ingredientes
+      summary: elimina el ingrediente con identificador único {ingrID}
+      description: |
+        Si el ingrediente no existe, devuelve un código de estado de error 404 “Not Found”.
+        Si la eliminación se realiza de forma exitosa, devuelve un código de estado 204 “No Content”.
+      operationId: deleteIngrediente
+      parameters:
+        - name: ingrID
+          in: path
+          description: id del ingrediente a eliminar
+          required: true
+          type: string
+      responses:
+        204:
+          description: No Content
+        404:
+          description: Not Found
+          
+       
+  /recetas:
+    
+    get:
+      tags:
+      - Recetas
+      summary: devuelve todas las recetas
+      description: |
+        Devuelve todas las recetas de la aplicación.
+      produces:
+      - application/json
+      operationId: getRecetas
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/listRecetas'
+        default:
+          description: Unexpected Error
+          
+    post:
+      tags: 
+      - Recetas
+      operationId: addReceta
+      summary: añade una nueva receta
+      description: |
+        Añade una nueva receta. Los datos de la receta se deben pasar en el cuerpo de la petición en formato JSON. Dichos datos no pueden contener el id, ya que éste se genera automáticamente en la creación, ni tampoco los ingredientes, pues hay que añadirlos después de crear la receta. El único atributo requerido es el nombre de la receta.
+        En caso de que [datos] no sean válidos, devuelve un código de estado de error 400 “Bad Request”.
+        En caso de que la receta se añada de forma exitosa, devuelve un código de estado 201 “Created” con la referencia a la URI y al contenido de la receta.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: receta
+        in: body
+        description: Receta a añadir
+        schema:
+          $ref: '#/definitions/postReceta'
+      responses:
+        201:
+          description: Created
+        400:
+          description: Bad Request
+          
+    put:
+      tags: 
+      - Recetas
+      operationId: updateReceta
+      summary: actualiza los datos de una receta
+      description: |
+        Actualiza los datos de la receta cuyos datos se pasan por el cuerpo de la petición en formato JSON, incluyendo el identificador único “recetaID” como criterio de selección del recurso a actualizar. Dichos datos no pueden contener el id, el nombre, ni la fecha de publicación, pues estos atributos no son modificables.
+        Si la receta no existe, devuelve un código de estado de error 404 “Not Found”.
+        Si la actualización se realiza de forma exitosa, devuelve un código de estado 204 “No Content”.
+      consumes:
+      - application/json 
+      parameters:
+      - name: receta
+        in: body
+        description: Receta a actualizar
+        schema:
+          $ref: '#/definitions/updateReceta'
+      responses:
+        204:
+          description: No Content
+        404:
+          description: Not Found
+          
+    
+  /recetas/{recetaID}:
+        
+    get:
+      tags:
+      - Recetas
+      summary: "devuelve la receta con identificador único {recetaID}"
+      description: |
+        Si la receta no existe, devuelve un código de estado de error 404 “Not Found”.
+      produces:
+      - application/json
+      operationId: getReceta
+      parameters:
+        - name: recetaID
+          in: path
+          description: id de la receta a devolver
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/listRecetas'
+        404:
+          description: Not Found
+    
+    delete:
+      tags:
+      - Recetas
+      summary: elimina la receta con identificador único {recetaID}
+      description: |
+        Si la receta no existe, devuelve un código de estado de error 404 “Not Found”.
+        Si la eliminación se realiza de forma exitosa, devuelve un código de estado 204 “No Content”.
+      operationId: deleteReceta
+      parameters:
+        - name: recetaID
+          in: path
+          description: id de la receta a eliminar
+          required: true
+          type: string
+      responses:
+        204:
+          description: No Content
+        404:
+          description: Not Found
+    
+  /recetas/{recetaID}/{ingrID}:
+    post:
+      tags: 
+      - Recetas
+      summary: "añade el ingrediente con id {ingrID} a la receta con id {recetaID}"
+      description: |
+        En caso de que la receta o el ingrediente no existan, devuelve un código de estado de error 404 “Not Found”.
+        En caso de que el ingrediente ya esté incluido en la receta, devuelve un código de estado de error 400 “Bad Request”.
+        En caso de que la inserción se realice de forma exitosa, devuelve un código de estado 201 “Created” con la referencia a la URI y el contenido de la receta.
+      consumes:
+      - text/plain
+      produces:
+      - application/json
+      operationId: addIngredienteToReceta
+      parameters:
+        - name: recetaID
+          in: path
+          description: id de la receta a la que añadir el ingrediente
+          required: true
+          type: string  
+        - name: ingrID
+          in: path
+          description: id del ingrediente a añadir
+          required: true
+          type: string
+      responses:
+        201:
+          description: Created
+        400:
+          description: Bad Request
+        404:
+          description: Not Found
+          
+    delete:
+      tags:
+      - Recetas
+      summary: "elimina el ingrediente con id {ingrID} de la receta con id {recetaID}"
+      description: |
+        En caso de que la receta o el ingrediente no existan, devuelve un código de estado de error 404 “Not Found”.
+        En caso de que la eliminación se realice de forma exitosa, devuelve un código de estado 204 “No Content”.
+      operationId: deleteIngredienteFromReceta
+      parameters:
+        - name: recetaID
+          in: path
+          description: id de la receta a la que eliminar el ingrediente
+          required: true
+          type: string
+        - name: ingrID
+          in: path
+          description: id del ingrediente a eliminar
+          required: true
+          type: string
+      responses:
+        204:
+          description: No Content
+        404:
+          description: Not Found
+    
+    
+    
+    
+    
+    
+    
+definitions:
+  listIngredientes:
+    type: object
+    required:
+    - nombre
+    properties:
+      id:
+        type: string
+        example: i5
+      nombre:
+        type: string
+        example: Garbanzos
+      cantidad:
+        type: string
+        example: "300.0"
+      unidad:
+        type: string
+        example: gramos
+      calorias:
+        type: string
+        example: "540.0"
+        
+  postIngrediente:
+    type: object
+    required:
+    - nombre
+    properties:
+      nombre:
+        type: string
+        example: Garbanzos
+      cantidad:
+        type: string
+        example: "300.0"
+      unidad:
+        type: string
+        example: gramos
+      calorias:
+        type: string
+        example: "540.0"
+        
+  updateIngrediente:
+    type: object
+    required:
+    - nombre
+    properties:
+      nombre:
+        type: string
+        example: Garbanzos
+      cantidad:
+        type: string
+        example: "300.0"
+      unidad:
+        type: string
+        example: gramos
+      calorias:
+        type: string
+        example: "540.0"      
+        
+  listRecetas:
+    required:
+    - nombre
+    properties:
+      id:
+        type: string
+        example: r3
+      fechaPublicacion:
+        type: string
+        example: "2018-03-02"
+      nombre:
+        type: string
+        example: Cocido madrileño
+      descripcion:
+        type: string
+        example:  'Remojar los garbanzos la noche anterior en agua templada
+    con un poco de sal. A la mañana siguiente, sacarlos y escurrirlos. Colocar
+    en una cazuela grande...'
+      foto:
+        type: string
+        format: url
+        example: http://foodreams.appspot.com/media/cocido-madrid-2018-03-02.jpg
+      nComensales:
+        type: string
+        example: "6"
+      alergenos:
+        type: array
+        items: 
+          type: string
+          example:  
+            - huevo 
+            - gluten 
+      ingredientes:
+        type: array
+        items: 
+          $ref: '#/definitions/listIngredientes'
+        
+  postReceta:
+    required:
+    - nombre
+    properties:
+      fechaPublicacion:
+        type: string
+        example: "2018-03-02"
+      nombre:
+        type: string
+        example: Cocido madrileño
+      descripcion:
+        type: string
+        example:  'Remojar los garbanzos la noche anterior en agua templada
+    con un poco de sal. A la mañana siguiente, sacarlos y escurrirlos. Colocar
+    en una cazuela grande...'
+      foto:
+        type: string
+        format: url
+        example: http://foodreams.appspot.com/media/cocido-madrid-2018-03-02.jpg
+      nComensales:
+        type: string
+        example: "6"
+      alergenos:
+        type: array
+        items: 
+          type: string
+          example:  
+            - huevo 
+            - gluten
+  
+  updateReceta:
+    required:
+    - nombre
+    properties:
+      fechaPublicacion:
+        type: string
+        example: "2018-03-02"
+      nombre:
+        type: string
+        example: Cocido madrileño
+      descripcion:
+        type: string
+        example:  'Remojar los garbanzos la noche anterior en agua templada
+    con un poco de sal. A la mañana siguiente, sacarlos y escurrirlos. Colocar
+    en una cazuela grande...'
+      foto:
+        type: string
+        format: url
+        example: http://foodreams.appspot.com/media/cocido-madrid-2018-03-02.jpg
+      nComensales:
+        type: string
+        example: "6"
+      alergenos:
+        type: array
+        items: 
+          type: string
+          example:  
+            - huevo 
+            - gluten
