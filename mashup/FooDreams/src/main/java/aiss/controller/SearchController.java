@@ -46,12 +46,13 @@ public class SearchController extends HttpServlet {
 		EdamamResource edamam = new EdamamResource();
 		RecetaSearch edamamResults = edamam.getRecetas(q, diet, ingr);
 		
-		if (edamamResults != null) {
+		if (edamamResults != null && edamamResults.getHits().size() > 0) {
 			log.log(Level.FINE, "Total de recetas encontradas: " + edamamResults.getHits().size());
 			rd = request.getRequestDispatcher("/recetas.jsp");
 			request.setAttribute("recetas", edamamResults.getHits());
 		} else {
 			log.log(Level.WARNING, "No se encontraron recetas");
+			request.setAttribute("error", "No se encontraron recetas para los términos de búsqueda introducidos.");
 			rd = request.getRequestDispatcher("/error.jsp");
 		}
 		rd.forward(request, response);

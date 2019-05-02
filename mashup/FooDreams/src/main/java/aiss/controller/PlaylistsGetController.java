@@ -58,6 +58,7 @@ public class PlaylistsGetController extends HttpServlet {
 				}
 			} else {
 				log.log(Level.WARNING, "No se encontraron playlists para el usuario.");
+				request.setAttribute("error", "No se encontraron playlist para el usuario.");
 				request.getRequestDispatcher("/error.jsp").forward(request, response);
 			}
 			
