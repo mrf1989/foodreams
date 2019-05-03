@@ -66,7 +66,7 @@
     </init-param>
     <init-param>
       <param-name>onSuccess</param-name>
-      <param-value>redirect:/</param-value>
+      <param-value>redirect:/SearchController</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -128,5 +128,15 @@
   <servlet-mapping>
     <servlet-name>UpdatePlaylistController</servlet-name>
     <url-pattern>/UpdatePlaylistController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>IndexController</display-name>
+    <servlet-name>IndexController</servlet-name>
+    <servlet-class>aiss.controller.IndexController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexController</servlet-name>
+    <url-pattern>/IndexController</url-pattern>
   </servlet-mapping>
 </web-app>

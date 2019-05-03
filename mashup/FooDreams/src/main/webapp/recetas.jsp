@@ -12,14 +12,14 @@
 		<div class="row my-3">
 			<div class="col-md-12 py-2">
 				<form class="d-flex justify-content-center" action="PhotosController" method="get">
-					<input type="hidden" name="q" value="${param.q}">
+					<input type="hidden" name="q" value="${sessionScope.q}">
 					<button class="btn btn-primary btn-lg" type="submit"><i class="fas fa-images"></i> Fotos</button>
 				</form>
 			</div>
 		</div>
 		<div class="row my-3">
 			<div class="col-md-12">
-				<h2>Resultados sobre: "<c:out value="${param.q}"/>"</h2>
+				<h2>Resultados sobre: "<c:out value="${sessionScope.q}"/>"</h2>
 			</div>
 		</div>
 		<div class="row">
@@ -60,7 +60,7 @@
 							</div>
 							<div class="receta-opt">
 								<div class="calorias">
-									<p>Calorías: <span id="caloriasReceta">${receta.recipe.calories / receta.recipe.yield}</span> kcal / persona</p>
+									<p>Calorías: <span id="caloriasReceta">${receta.recipe.calories / receta.recipe.yield}</span> kcal</p>
 									<script>
 										var caloriasReceta = document.getElementById('caloriasReceta');
 										caloriasReceta.innerHTML = Math.round(caloriasReceta.innerHTML * 100) / 100;

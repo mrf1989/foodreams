@@ -8,7 +8,7 @@
 				</div>
 			</div>
 			<div id="filter" class="col-sm-12 col-md-7 hidden-mobile">
-            	<form method="GET" action="SearchController">
+            	<form method="GET" action="IndexController">
                 	<div class="form-row recipe-search">
                   		<div class="form-group col-md-5">
                       		<input type="text" name="q" class="form-control" placeholder="Buscar otra receta..." autofocus="autofocus" autocomplete="off">
