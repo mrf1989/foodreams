@@ -3,7 +3,6 @@ package aiss.api.resources;
 import java.net.URI;
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;

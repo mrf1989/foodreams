@@ -33,11 +33,11 @@
                             <div class="col-md-8">
                                 <form method="get" action="SearchController">
                                     <div class="form-row">
-                                        <div class="form-group col-md-10 col-sm-9 order-md-1">
+                                        <div class="form-group col-md-10 col-sm-9 order-sm-1">
                                             <input type="text" name="q" class="form-control" placeholder="Buscar una receta" autocomplete="off">
                                         </div>
                                         
-                                        <div class="form-group col-md-5 col-sm-6 order-md-3">
+                                        <div class="form-group col-md-5 col-sm-6 order-sm-3">
                                             <select name="diet" class="form-control">
                                             	<option value="">-- Tipo de dieta --</option>
                                                 <option value="balanced">Equilibrada</option>
@@ -46,11 +46,11 @@
 												<option value="low-carb">Baja en carbohidratos</option>
                                             </select>
                                         </div>
-                                        <div class="form-group col-md-5 col-sm-3 order-md-4">
+                                        <div class="form-group col-md-5 col-sm-3 order-sm-4">
                                             <input type="number" name="ingr" class="form-control" placeholder="Nº ingredientes máx.">
                                         </div>
                                         
-                                        <div class="form-group col-md-2 col-sm-3 order-md-2">
+                                        <div class="form-group col-md-2 col-sm-3 order-sm-2">
                                             <button class="btn btn-primary btn-block" type="submit">
                                                 <i class="fas fa-search"></i> <span class="btn-search-text">Buscar</span>
                                             </button>
@@ -58,16 +58,7 @@
                                     </div>  
                                 </form>
                             </div>
-                        </div>
-                        <!--Fin formulario-->
-
-
-                        <!--Login button-->
-                        <div class="row pt-md-5 text-center">
-                            <div class="col">
-                                <button class="btn btn-primary btn-login" onclick="location.href='/youtubePlaylists'"><i class="fab fa-youtube"></i> Mis playlists de recetas</button>
-                            </div>
-                        </div>
+                        </div> <!--Fin formulario-->
                     </div>
                    	<div class="col-12">
 	                    <footer class="footer">

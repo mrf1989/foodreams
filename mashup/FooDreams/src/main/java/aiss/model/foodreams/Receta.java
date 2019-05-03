@@ -96,7 +96,7 @@ public class Receta {
 	}
 
 	public void deleteAlergenos(String a) {
-		ingredientes.remove(a);
+		alergenos.remove(a);
 	}
 
 	public List<Ingrediente> getIngredientes() {
@@ -138,7 +138,6 @@ public class Receta {
 		}
 	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -153,7 +152,6 @@ public class Receta {
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -206,7 +204,5 @@ public class Receta {
 			return false;
 		return true;
 	}
-	
-	
 
 }
