@@ -31,7 +31,7 @@
                         <!--Formulario de búsqueda-->
                         <div class="row justify-content-center">
                             <div class="col-md-8">
-                                <form method="get" action="SearchController">
+                                <form method="get" action="IndexController">
                                     <div class="form-row">
                                         <div class="form-group col-md-10 col-sm-9 order-sm-1">
                                             <input type="text" name="q" class="form-control" placeholder="Buscar una receta" autocomplete="off">
