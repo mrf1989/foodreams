@@ -33,29 +33,35 @@ public class SearchController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String q = request.getParameter("q");
-		String diet = request.getParameter("diet");
-		String ingr = request.getParameter("ingr");
+		String q = (String) request.getSession().getAttribute("q");
+		String diet = (String) request.getSession().getAttribute("diet");
+		String ingr = (String) request.getSession().getAttribute("ingr");
+		String accessToken = (String) request.getSession().getAttribute("Youtube-token");
 		
-		RequestDispatcher rd = null;
-		
-		log.log(Level.FINE, "Buscando en Edamam recetas de " + q);
-		log.log(Level.FINE, "Buscando recetas de dieta: " + diet);
-		log.log(Level.FINE, "Buscando recetas de un máximo de ingredientes: " + ingr);
-		
-		EdamamResource edamam = new EdamamResource();
-		RecetaSearch edamamResults = edamam.getRecetas(q, diet, ingr);
-		
-		if (edamamResults != null && edamamResults.getHits().size() > 0) {
-			log.log(Level.FINE, "Total de recetas encontradas: " + edamamResults.getHits().size());
-			rd = request.getRequestDispatcher("/recetas.jsp");
-			request.setAttribute("recetas", edamamResults.getHits());
+		if (accessToken != null && !"".equals(accessToken)) {
+			RequestDispatcher rd = null;
+			
+			log.log(Level.FINE, "Buscando en Edamam recetas de " + q);
+			log.log(Level.FINE, "Buscando recetas de dieta: " + diet);
+			log.log(Level.FINE, "Buscando recetas de un máximo de ingredientes: " + ingr);
+			
+			EdamamResource edamam = new EdamamResource();
+			RecetaSearch edamamResults = edamam.getRecetas(q, diet, ingr);
+			
+			if (edamamResults != null && edamamResults.getHits().size() > 0) {
+				log.log(Level.FINE, "Total de recetas encontradas: " + edamamResults.getHits().size());
+				rd = request.getRequestDispatcher("/recetas.jsp");
+				request.setAttribute("recetas", edamamResults.getHits());
+			} else {
+				log.log(Level.WARNING, "No se encontraron recetas");
+				request.setAttribute("error", "No se encontraron recetas para los términos de búsqueda introducidos.");
+				rd = request.getRequestDispatcher("/error.jsp");
+			}
+			rd.forward(request, response);
 		} else {
-			log.log(Level.WARNING, "No se encontraron recetas");
-			request.setAttribute("error", "No se encontraron recetas para los términos de búsqueda introducidos.");
-			rd = request.getRequestDispatcher("/error.jsp");
+			log.log(Level.INFO, "Intentando acceder al servicio sin accessToken. Redirigiendo al OAuth servlet.");
+			request.getRequestDispatcher("/AuthController/Youtube").forward(request, response);
 		}
-		rd.forward(request, response);
 		
 	}
 
