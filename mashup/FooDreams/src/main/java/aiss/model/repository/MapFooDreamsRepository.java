@@ -33,6 +33,12 @@ public class MapFooDreamsRepository implements FooDreamsRepository {
 
 		Ingrediente tocino = new Ingrediente("Tocino", "200.0", "gramos", "1082.0");
 		addIngrediente(tocino);
+		
+		Ingrediente huevo = new Ingrediente("Huevo", "200.0", "gramos", "1082.0");
+		addIngrediente(huevo);
+		
+		Ingrediente leche = new Ingrediente("Leche", "200.0", "mililitros", "1082.0");
+		addIngrediente(leche);
 
 		// Crear recetas
 		List<String> s = new ArrayList<String>();
@@ -51,10 +57,29 @@ public class MapFooDreamsRepository implements FooDreamsRepository {
 				"Cuando la masa esté lista, la incorporamos a un molde engrasado y horneamos a 180º C durante 40 minutos en un molde grande."+
 				"Pasado ese tiempo sacamos del horno, dejamos enfriar y servimos con un poco de azúcar glass por encima.", "http://foodreams.appspot.com/media/bizcocho-2019-02-01.jpg", "5", s1);
 		addReceta(bizcocho);
+		
+		Receta tarta= new Receta("2019-02-01", "Tarta ", "En primer lugar, batimos los huevos junto con el yogur, el azúcar, el aceite, la harina y la levadura."+
+				"Cuando la masa esté lista, la incorporamos a un molde engrasado y horneamos a 180º C durante 40 minutos en un molde grande."+
+				"Pasado ese tiempo sacamos del horno, dejamos enfriar y servimos con un poco de azúcar glass por encima.", "http://foodreams.appspot.com/media/bizcocho-2019-02-01.jpg", "5", s1);
+		addReceta(tarta);
+		
+		Receta napolitanas= new Receta("2019-02-01", "Napolitanas ", "En primer lugar, batimos los huevos junto con el yogur, el azúcar, el aceite, la harina y la levadura."+
+				"Cuando la masa esté lista, la incorporamos a un molde engrasado y horneamos a 180º C durante 40 minutos en un molde grande."+
+				"Pasado ese tiempo sacamos del horno, dejamos enfriar y servimos con un poco de azúcar glass por encima.", "http://foodreams.appspot.com/media/bizcocho-2019-02-01.jpg", "5", s1);
+		addReceta(napolitanas);
 
 		// Añadir ingredientes a las recetas
 		addIngrediente(cocidoMadrileño.getId(), garbanzos.getId());
 		addIngrediente(cocidoMadrileño.getId(), tocino.getId());
+		addIngrediente(cocidoMadrileño.getId(), leche.getId());
+		addIngrediente(cocidoMadrileño.getId(), huevo.getId());
+		
+		addIngrediente(bizcocho.getId(), huevo.getId());
+		addIngrediente(bizcocho.getId(), leche.getId());
+		
+		addIngrediente(tarta.getId(), leche.getId());
+
+
 	}
 
 	@Override
