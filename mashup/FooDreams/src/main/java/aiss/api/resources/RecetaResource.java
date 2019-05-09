@@ -125,7 +125,7 @@ public class RecetaResource {
 	public Response removeReceta(@PathParam("id") String id) {
 		Receta receta = repository.getReceta(id);
 		
-		if (receta.getId()==null)
+		if (receta==null)
 			throw new NotFoundException("La receta con id="+id+" no ha sido encontrada");
 		
 		
@@ -133,6 +133,7 @@ public class RecetaResource {
 		
 		return Response.noContent().build();
 	}
+
 	
 	//ingrediente
 	
