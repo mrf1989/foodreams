@@ -115,7 +115,7 @@ public class IngredienteResource {
 	public Response removeIngrediente(@PathParam("id") String id) {
 		Ingrediente ingrediente = repository.getIngrediente(id);
 
-		if (ingrediente.getId() == null)
+		if (ingrediente == null)
 			throw new NotFoundException("El ingrediente con id=" + id + " no ha sido encontrado");
 
 		List<Receta> recetas = new ArrayList<>(repository.getAllRecetas());
