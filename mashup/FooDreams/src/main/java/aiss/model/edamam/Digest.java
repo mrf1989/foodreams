@@ -2,15 +2,15 @@
 package aiss.model.edamam;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+@JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "label",
@@ -38,8 +38,6 @@ public class Digest {
     private Double daily;
     @JsonProperty("unit")
     private String unit;
-    @JsonProperty("sub")
-    private List<Sub> sub = null;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -111,16 +109,6 @@ public class Digest {
     @JsonProperty("unit")
     public void setUnit(String unit) {
         this.unit = unit;
-    }
-
-    @JsonProperty("sub")
-    public List<Sub> getSub() {
-        return sub;
-    }
-
-    @JsonProperty("sub")
-    public void setSub(List<Sub> sub) {
-        this.sub = sub;
     }
 
     @JsonAnyGetter
