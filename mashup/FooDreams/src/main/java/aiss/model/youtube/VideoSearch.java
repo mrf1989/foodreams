@@ -7,10 +7,11 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+@JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "kind",
@@ -30,8 +31,6 @@ public class VideoSearch {
     private String nextPageToken;
     @JsonProperty("regionCode")
     private String regionCode;
-    @JsonProperty("pageInfo")
-    private PageInfo pageInfo;
     @JsonProperty("items")
     private List<Item> items = null;
     @JsonIgnore
@@ -75,16 +74,6 @@ public class VideoSearch {
     @JsonProperty("regionCode")
     public void setRegionCode(String regionCode) {
         this.regionCode = regionCode;
-    }
-
-    @JsonProperty("pageInfo")
-    public PageInfo getPageInfo() {
-        return pageInfo;
-    }
-
-    @JsonProperty("pageInfo")
-    public void setPageInfo(PageInfo pageInfo) {
-        this.pageInfo = pageInfo;
     }
 
     @JsonProperty("items")

@@ -7,10 +7,11 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+@JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "kind",
@@ -24,8 +25,6 @@ public class Playlists {
     private String kind;
     @JsonProperty("etag")
     private String etag;
-    @JsonProperty("pageInfo")
-    private PageInfo pageInfo;
     @JsonProperty("items")
     private List<Item_> items = null;
     @JsonIgnore
@@ -49,16 +48,6 @@ public class Playlists {
     @JsonProperty("etag")
     public void setEtag(String etag) {
         this.etag = etag;
-    }
-
-    @JsonProperty("pageInfo")
-    public PageInfo getPageInfo() {
-        return pageInfo;
-    }
-
-    @JsonProperty("pageInfo")
-    public void setPageInfo(PageInfo pageInfo) {
-        this.pageInfo = pageInfo;
     }
 
     @JsonProperty("items")
